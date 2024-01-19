@@ -1,93 +1,424 @@
 CREATE DATABASE  IF NOT EXISTS `yii2advanced`;
 USE `yii2advanced`;
 /*
- Navicat Premium Data Transfer
+Navicat MySQL Data Transfer
 
- Source Server         : 1
- Source Server Type    : MySQL
- Source Server Version : 80012 (8.0.12)
- Source Host           : localhost:3306
- Source Schema         : yii2advanced
+Source Server         : 91
+Source Server Version : 50728
+Source Host           : 49.233.130.58:3306
+Source Database       : yii2advanced
 
- Target Server Type    : MySQL
- Target Server Version : 80012 (8.0.12)
- File Encoding         : 65001
+Target Server Type    : MYSQL
+Target Server Version : 50728
+File Encoding         : 65001
 
- Date: 09/01/2024 16:19:12
+Date: 2020-06-14 10:22:26
 */
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for admins
+-- Table structure for `article`
 -- ----------------------------
-DROP TABLE IF EXISTS `admins`;
-CREATE TABLE `admins`  (
-  `AdminID` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`AdminID`) USING BTREE,
-  INDEX `admins_ibfk_1`(`Username` ASC) USING BTREE,
-  CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`Username`) REFERENCES `users` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `article`;
+CREATE TABLE `article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
+  `content` text,
+  `date` date DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `viewed` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`) USING BTREE,
+  KEY `fk-article-user_id` (`created_by`),
+  FULLTEXT KEY `title` (`title`,`description`),
+  CONSTRAINT `fk-article-user_id` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of admins
+-- Records of article
 -- ----------------------------
-INSERT INTO `admins` VALUES (1, 'admin');
+INSERT INTO `article` VALUES ('6', '核污水排放现场海水呈现两种颜色', '<p>当地时间8月24日13时，日本单方面强行启动福岛核污染水排入海洋。经过17分钟，核污染水经由1公里的海底隧道流进太平洋。从现场航拍画面中可以看到，福岛海面上已呈现出两种颜色。</p>\r\n', '2021-06-07', 'https://imagecloud.thepaper.cn/thepaper/image/267/110/483.jpg', '11', '2', '1', '1');
+INSERT INTO `article` VALUES ('7', '清华深研院团队发文分析福岛核废水在太平洋的扩散机理', '<p style="padding:0px;outline:0px;background-color:#ffffff;font-family:微软雅黑, &quot;microsoft yahei&quot;;font-size:16px;color:#000000;line-height:1.75em;margin-top:10px;margin-bottom:10px;">团队进行的宏观模拟结果表明，核废水在排放后240天就会到达我国沿岸海域，1200天后将到达北美沿岸并覆盖几乎整个北太平洋。随后，污染物一边在赤道洋流的作用下沿着美洲海岸向南太平洋快速扩散，另一边通过澳大利亚北部海域向印度洋转移。值得注意的是，尽管污染物的排放位置是在福岛附近，但随着时间的推移，污染物高浓度区域将沿着35°N线附近向东延伸，从开始的东亚附近海域扩散到北美附近海域。在第2400天时，中国东南沿岸海域主要呈现浓度较低的浅粉色，而北美西侧海域已经基本被浓度较高的红色覆盖。</p>\r\n', '2021-12-01', 'https://www.sigs.tsinghua.edu.cn/_upload/article/images/52/50/2c7759344698a58a29fbe3433778/b194d946-93fb-4766-944d-f2c6f892e4c5.jpg', '1', '2', '1', '1');
 
 -- ----------------------------
--- Table structure for articlecomments
+-- Table structure for `article_tag`
 -- ----------------------------
-DROP TABLE IF EXISTS `articlecomments`;
-CREATE TABLE `articlecomments`  (
-  `CommentID` int(11) NOT NULL AUTO_INCREMENT,
-  `ArticleID` int(11) NOT NULL,
-  `Comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `CommentDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`CommentID`) USING BTREE,
-  INDEX `ArticleID`(`ArticleID` ASC) USING BTREE,
-  INDEX `fk_article_comments_username`(`Username` ASC) USING BTREE,
-  CONSTRAINT `article_comments_ibfk_2` FOREIGN KEY (`ArticleID`) REFERENCES `news` (`articleid`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `fk_article_comments_username` FOREIGN KEY (`Username`) REFERENCES `users` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4  COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `article_tag`;
+CREATE TABLE `article_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) DEFAULT NULL,
+  `tag_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tag_article_article_id` (`article_id`),
+  KEY `idx_tag_id` (`tag_id`),
+  CONSTRAINT `fk-tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tag_article_article_id` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of articlecomments
--- ----------------------------
-
--- ----------------------------
--- Table structure for articlelikes
--- ----------------------------
-DROP TABLE IF EXISTS `articlelikes`;
-CREATE TABLE `articlelikes`  (
-  `LikeID` int(11) NOT NULL AUTO_INCREMENT,
-  `ArticleID` int(11) NOT NULL,
-  `Likes` int(11) NULL DEFAULT 0,
-  PRIMARY KEY (`LikeID`) USING BTREE,
-  INDEX `ArticleID`(`ArticleID`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Fixed;
-
--- ----------------------------
--- Records of articlelikes
+-- Records of article_tag
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for articles
+-- Table structure for `category`
 -- ----------------------------
-DROP TABLE IF EXISTS `news`;
-CREATE TABLE `news`  (
-  `ArticleID` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Info` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `Date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`ArticleID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10254 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of articles
+-- Records of category
 -- ----------------------------
+INSERT INTO `category` VALUES ('1', '日本排放核废水相关新闻');
+
+-- ----------------------------
+-- Table structure for `comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text` varchar(255) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `article_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `video_id` varchar(16) DEFAULT 'null',
+  `password` varchar(20) DEFAULT 'pass123',
+  PRIMARY KEY (`id`),
+  KEY `idx-post-user_id` (`user_id`),
+  KEY `idx-article_id` (`article_id`),
+  CONSTRAINT `fk-post-user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+INSERT INTO `comment` VALUES ('1', 'lol', '2', '2', '1', '2020-05-09', 'null', 'pass123');
+INSERT INTO `comment` VALUES ('2', 'soom', '2', '2', '1', '2020-05-09', null, 'pass123');
+INSERT INTO `comment` VALUES ('4', 'hello\r\n', '2', '2', '1', '2020-05-09', null, 'pass123');
+INSERT INTO `comment` VALUES ('5', 'hello', '2', null, '1', '2020-05-09', null, 'pass123');
+INSERT INTO `comment` VALUES ('6', 'a', '2', '2', '1', '2020-05-09', 'null', 'pass123');
+INSERT INTO `comment` VALUES ('7', 'lala', '2', '2', '1', '2020-05-09', 'null', 'pass123');
+INSERT INTO `comment` VALUES ('8', 'kk', '4', '2', '1', '2020-05-09', 'null', 'pass123');
+INSERT INTO `comment` VALUES ('13', 'kk', '2', '0', '1', '2020-05-09', 'ECR47F1S', 'pass123');
+INSERT INTO `comment` VALUES ('14', 'video', '2', '0', '1', '2020-05-09', 'ECR47F1S', 'pass123');
+INSERT INTO `comment` VALUES ('15', 'videoagin', '2', null, '1', '2020-05-09', 'ECR47F1S', 'pass123');
+INSERT INTO `comment` VALUES ('16', 'testing testing', '6', '3', '1', '2020-06-01', 'null', 'pass123');
+
+-- ----------------------------
+-- Table structure for `contact_form`
+-- ----------------------------
+DROP TABLE IF EXISTS `contact_form`;
+CREATE TABLE `contact_form` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `sex` tinyint(1) DEFAULT NULL,
+  `wechatid` varchar(50) NOT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `message` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of contact_form
+-- ----------------------------
+INSERT INTO `contact_form` VALUES ('12', 'Tony', 'Stark', '1', 'iamironman', '159876-546-64', 'I think your web page is pretty good.');
+INSERT INTO `contact_form` VALUES ('13', 'Tony', 'Stark', '1', 'iamironman', '159876-546-64', 'I think your web page is pretty good.');
+INSERT INTO `contact_form` VALUES ('14', 'Steve', 'Rogers', '1', 'america', '157952-32468', 'Good job!');
+
+-- ----------------------------
+-- Table structure for `country`
+-- ----------------------------
+DROP TABLE IF EXISTS `country`;
+CREATE TABLE `country` (
+  `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`code`),
+  UNIQUE KEY `country_code_idx` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of country
+-- ----------------------------
+INSERT INTO `country` VALUES ('AD', 'Andorra');
+INSERT INTO `country` VALUES ('AE', 'United Arab Emirates');
+INSERT INTO `country` VALUES ('AF', 'Afghanistan');
+INSERT INTO `country` VALUES ('AG', 'Antigua and Barbuda');
+INSERT INTO `country` VALUES ('AI', 'Anguilla');
+INSERT INTO `country` VALUES ('AL', 'Albania');
+INSERT INTO `country` VALUES ('AM', 'Armenia');
+INSERT INTO `country` VALUES ('AO', 'Angola');
+INSERT INTO `country` VALUES ('AQ', 'Antarctica');
+INSERT INTO `country` VALUES ('AR', 'Argentina');
+INSERT INTO `country` VALUES ('AS', 'American Samoa');
+INSERT INTO `country` VALUES ('AT', 'Austria');
+INSERT INTO `country` VALUES ('AU', 'Australia');
+INSERT INTO `country` VALUES ('AW', 'Aruba');
+INSERT INTO `country` VALUES ('AX', 'Åland Islands');
+INSERT INTO `country` VALUES ('AZ', 'Azerbaijan');
+INSERT INTO `country` VALUES ('BA', 'Bosnia and Herzegovina');
+INSERT INTO `country` VALUES ('BB', 'Barbados');
+INSERT INTO `country` VALUES ('BD', 'Bangladesh');
+INSERT INTO `country` VALUES ('BE', 'Belgium');
+INSERT INTO `country` VALUES ('BF', 'Burkina Faso');
+INSERT INTO `country` VALUES ('BG', 'Bulgaria');
+INSERT INTO `country` VALUES ('BH', 'Bahrain');
+INSERT INTO `country` VALUES ('BI', 'Burundi');
+INSERT INTO `country` VALUES ('BJ', 'Benin');
+INSERT INTO `country` VALUES ('BL', 'Saint Barthélemy');
+INSERT INTO `country` VALUES ('BM', 'Bermuda');
+INSERT INTO `country` VALUES ('BN', 'Brunei Darussalam');
+INSERT INTO `country` VALUES ('BO', 'Bolivia (Plurinational State of)');
+INSERT INTO `country` VALUES ('BQ', 'Bonaire - Sint Eustatius and Saba');
+INSERT INTO `country` VALUES ('BR', 'Brazil');
+INSERT INTO `country` VALUES ('BS', 'Bahamas');
+INSERT INTO `country` VALUES ('BT', 'Bhutan');
+INSERT INTO `country` VALUES ('BV', 'Bouvet Island');
+INSERT INTO `country` VALUES ('BW', 'Botswana');
+INSERT INTO `country` VALUES ('BY', 'Belarus');
+INSERT INTO `country` VALUES ('BZ', 'Belize');
+INSERT INTO `country` VALUES ('CA', 'Canada');
+INSERT INTO `country` VALUES ('CC', 'Cocos (Keeling) Islands');
+INSERT INTO `country` VALUES ('CD', 'Democratic Republic of the Congo');
+INSERT INTO `country` VALUES ('CF', 'Central African Republic');
+INSERT INTO `country` VALUES ('CG', 'Congo');
+INSERT INTO `country` VALUES ('CH', 'Switzerland');
+INSERT INTO `country` VALUES ('CI', 'Côte d\'Ivoire');
+INSERT INTO `country` VALUES ('CK', 'Cook Islands');
+INSERT INTO `country` VALUES ('CL', 'Chile');
+INSERT INTO `country` VALUES ('CM', 'Cameroon');
+INSERT INTO `country` VALUES ('CN', 'China');
+INSERT INTO `country` VALUES ('CO', 'Colombia');
+INSERT INTO `country` VALUES ('CR', 'Costa Rica');
+INSERT INTO `country` VALUES ('CU', 'Cuba');
+INSERT INTO `country` VALUES ('CV', 'Cabo Verde');
+INSERT INTO `country` VALUES ('CW', 'Curaçao');
+INSERT INTO `country` VALUES ('CX', 'Christmas Island');
+INSERT INTO `country` VALUES ('CY', 'Cyprus');
+INSERT INTO `country` VALUES ('CZ', 'Czechia');
+INSERT INTO `country` VALUES ('DE', 'Germany');
+INSERT INTO `country` VALUES ('DJ', 'Djibouti');
+INSERT INTO `country` VALUES ('DK', 'Denmark');
+INSERT INTO `country` VALUES ('DM', 'Dominica');
+INSERT INTO `country` VALUES ('DO', 'Dominican Republic');
+INSERT INTO `country` VALUES ('DZ', 'Algeria');
+INSERT INTO `country` VALUES ('EC', 'Ecuador');
+INSERT INTO `country` VALUES ('EE', 'Estonia');
+INSERT INTO `country` VALUES ('EG', 'Egypt');
+INSERT INTO `country` VALUES ('EH', 'Western Sahara');
+INSERT INTO `country` VALUES ('ER', 'Eritrea');
+INSERT INTO `country` VALUES ('ES', 'Spain');
+INSERT INTO `country` VALUES ('ET', 'Ethiopia');
+INSERT INTO `country` VALUES ('FI', 'Finland');
+INSERT INTO `country` VALUES ('FJ', 'Fiji');
+INSERT INTO `country` VALUES ('FK', 'Falkland Islands (Malvinas)');
+INSERT INTO `country` VALUES ('FM', 'Micronesia (Federated States of)');
+INSERT INTO `country` VALUES ('FO', 'Faroe Islands');
+INSERT INTO `country` VALUES ('FR', 'France');
+INSERT INTO `country` VALUES ('GA', 'Gabon');
+INSERT INTO `country` VALUES ('GB', 'United Kingdom of Great Britain and Northern Ireland');
+INSERT INTO `country` VALUES ('GD', 'Grenada');
+INSERT INTO `country` VALUES ('GE', 'Georgia');
+INSERT INTO `country` VALUES ('GF', 'French Guiana');
+INSERT INTO `country` VALUES ('GG', 'Guernsey');
+INSERT INTO `country` VALUES ('GH', 'Ghana');
+INSERT INTO `country` VALUES ('GI', 'Gibraltar');
+INSERT INTO `country` VALUES ('GL', 'Greenland');
+INSERT INTO `country` VALUES ('GM', 'Gambia');
+INSERT INTO `country` VALUES ('GN', 'Guinea');
+INSERT INTO `country` VALUES ('GP', 'Guadeloupe');
+INSERT INTO `country` VALUES ('GQ', 'Equatorial Guinea');
+INSERT INTO `country` VALUES ('GR', 'Greece');
+INSERT INTO `country` VALUES ('GS', 'South Georgia and the South Sandwich Islands');
+INSERT INTO `country` VALUES ('GT', 'Guatemala');
+INSERT INTO `country` VALUES ('GU', 'Guam');
+INSERT INTO `country` VALUES ('GW', 'Guinea-Bissau');
+INSERT INTO `country` VALUES ('GY', 'Guyana');
+INSERT INTO `country` VALUES ('HK', 'China - Hong Kong Special Administrative Region');
+INSERT INTO `country` VALUES ('HM', 'Heard Island and McDonald Islands');
+INSERT INTO `country` VALUES ('HN', 'Honduras');
+INSERT INTO `country` VALUES ('HR', 'Croatia');
+INSERT INTO `country` VALUES ('HT', 'Haiti');
+INSERT INTO `country` VALUES ('HU', 'Hungary');
+INSERT INTO `country` VALUES ('ID', 'Indonesia');
+INSERT INTO `country` VALUES ('IE', 'Ireland');
+INSERT INTO `country` VALUES ('IL', 'Israel');
+INSERT INTO `country` VALUES ('IM', 'Isle of Man');
+INSERT INTO `country` VALUES ('IN', 'India');
+INSERT INTO `country` VALUES ('IO', 'British Indian Ocean Territory');
+INSERT INTO `country` VALUES ('IQ', 'Iraq');
+INSERT INTO `country` VALUES ('IR', 'Iran (Islamic Republic of)');
+INSERT INTO `country` VALUES ('IS', 'Iceland');
+INSERT INTO `country` VALUES ('IT', 'Italy');
+INSERT INTO `country` VALUES ('JE', 'Jersey');
+INSERT INTO `country` VALUES ('JM', 'Jamaica');
+INSERT INTO `country` VALUES ('JO', 'Jordan');
+INSERT INTO `country` VALUES ('JP', 'Japan');
+INSERT INTO `country` VALUES ('KE', 'Kenya');
+INSERT INTO `country` VALUES ('KG', 'Kyrgyzstan');
+INSERT INTO `country` VALUES ('KH', 'Cambodia');
+INSERT INTO `country` VALUES ('KI', 'Kiribati');
+INSERT INTO `country` VALUES ('KM', 'Comoros');
+INSERT INTO `country` VALUES ('KN', 'Saint Kitts and Nevis');
+INSERT INTO `country` VALUES ('KP', 'Democratic People\'s Republic of Korea');
+INSERT INTO `country` VALUES ('KR', 'Republic of Korea');
+INSERT INTO `country` VALUES ('KW', 'Kuwait');
+INSERT INTO `country` VALUES ('KY', 'Cayman Islands');
+INSERT INTO `country` VALUES ('KZ', 'Kazakhstan');
+INSERT INTO `country` VALUES ('LA', 'Lao People\'s Democratic Republic');
+INSERT INTO `country` VALUES ('LB', 'Lebanon');
+INSERT INTO `country` VALUES ('LC', 'Saint Lucia');
+INSERT INTO `country` VALUES ('LI', 'Liechtenstein');
+INSERT INTO `country` VALUES ('LK', 'Sri Lanka');
+INSERT INTO `country` VALUES ('LR', 'Liberia');
+INSERT INTO `country` VALUES ('LS', 'Lesotho');
+INSERT INTO `country` VALUES ('LT', 'Lithuania');
+INSERT INTO `country` VALUES ('LU', 'Luxembourg');
+INSERT INTO `country` VALUES ('LV', 'Latvia');
+INSERT INTO `country` VALUES ('LY', 'Libya');
+INSERT INTO `country` VALUES ('MA', 'Morocco');
+INSERT INTO `country` VALUES ('MC', 'Monaco');
+INSERT INTO `country` VALUES ('MD', 'Republic of Moldova');
+INSERT INTO `country` VALUES ('ME', 'Montenegro');
+INSERT INTO `country` VALUES ('MF', 'Saint Martin (French Part)');
+INSERT INTO `country` VALUES ('MG', 'Madagascar');
+INSERT INTO `country` VALUES ('MH', 'Marshall Islands');
+INSERT INTO `country` VALUES ('MK', 'The former Yugoslav Republic of Macedonia');
+INSERT INTO `country` VALUES ('ML', 'Mali');
+INSERT INTO `country` VALUES ('MM', 'Myanmar');
+INSERT INTO `country` VALUES ('MN', 'Mongolia');
+INSERT INTO `country` VALUES ('MO', 'China - Macao Special Administrative Region');
+INSERT INTO `country` VALUES ('MP', 'Northern Mariana Islands');
+INSERT INTO `country` VALUES ('MQ', 'Martinique');
+INSERT INTO `country` VALUES ('MR', 'Mauritania');
+INSERT INTO `country` VALUES ('MS', 'Montserrat');
+INSERT INTO `country` VALUES ('MT', 'Malta');
+INSERT INTO `country` VALUES ('MU', 'Mauritius');
+INSERT INTO `country` VALUES ('MV', 'Maldives');
+INSERT INTO `country` VALUES ('MW', 'Malawi');
+INSERT INTO `country` VALUES ('MX', 'Mexico');
+INSERT INTO `country` VALUES ('MY', 'Malaysia');
+INSERT INTO `country` VALUES ('MZ', 'Mozambique');
+INSERT INTO `country` VALUES ('NA', 'Namibia');
+INSERT INTO `country` VALUES ('NC', 'New Caledonia');
+INSERT INTO `country` VALUES ('NE', 'Niger');
+INSERT INTO `country` VALUES ('NF', 'Norfolk Island');
+INSERT INTO `country` VALUES ('NG', 'Nigeria');
+INSERT INTO `country` VALUES ('NI', 'Nicaragua');
+INSERT INTO `country` VALUES ('NL', 'Netherlands');
+INSERT INTO `country` VALUES ('NO', 'Norway');
+INSERT INTO `country` VALUES ('NP', 'Nepal');
+INSERT INTO `country` VALUES ('NR', 'Nauru');
+INSERT INTO `country` VALUES ('NU', 'Niue');
+INSERT INTO `country` VALUES ('NZ', 'New Zealand');
+INSERT INTO `country` VALUES ('OM', 'Oman');
+INSERT INTO `country` VALUES ('PA', 'Panama');
+INSERT INTO `country` VALUES ('PE', 'Peru');
+INSERT INTO `country` VALUES ('PF', 'French Polynesia');
+INSERT INTO `country` VALUES ('PG', 'Papua New Guinea');
+INSERT INTO `country` VALUES ('PH', 'Philippines');
+INSERT INTO `country` VALUES ('PK', 'Pakistan');
+INSERT INTO `country` VALUES ('PL', 'Poland');
+INSERT INTO `country` VALUES ('PM', 'Saint Pierre and Miquelon');
+INSERT INTO `country` VALUES ('PN', 'Pitcairn');
+INSERT INTO `country` VALUES ('PR', 'Puerto Rico');
+INSERT INTO `country` VALUES ('PS', 'State of Palestine');
+INSERT INTO `country` VALUES ('PT', 'Portugal');
+INSERT INTO `country` VALUES ('PW', 'Palau');
+INSERT INTO `country` VALUES ('PY', 'Paraguay');
+INSERT INTO `country` VALUES ('QA', 'Qatar');
+INSERT INTO `country` VALUES ('RE', 'Réunion');
+INSERT INTO `country` VALUES ('RO', 'Romania');
+INSERT INTO `country` VALUES ('RS', 'Serbia');
+INSERT INTO `country` VALUES ('RU', 'Russian Federation');
+INSERT INTO `country` VALUES ('RW', 'Rwanda');
+INSERT INTO `country` VALUES ('SA', 'Saudi Arabia');
+INSERT INTO `country` VALUES ('SB', 'Solomon Islands');
+INSERT INTO `country` VALUES ('SC', 'Seychelles');
+INSERT INTO `country` VALUES ('SD', 'Sudan');
+INSERT INTO `country` VALUES ('SE', 'Sweden');
+INSERT INTO `country` VALUES ('SG', 'Singapore');
+INSERT INTO `country` VALUES ('SH', 'Saint Helena');
+INSERT INTO `country` VALUES ('SI', 'Slovenia');
+INSERT INTO `country` VALUES ('SJ', 'Svalbard and Jan Mayen Islands');
+INSERT INTO `country` VALUES ('SK', 'Slovakia');
+INSERT INTO `country` VALUES ('SL', 'Sierra Leone');
+INSERT INTO `country` VALUES ('SM', 'San Marino');
+INSERT INTO `country` VALUES ('SN', 'Senegal');
+INSERT INTO `country` VALUES ('SO', 'Somalia');
+INSERT INTO `country` VALUES ('SR', 'Suriname');
+INSERT INTO `country` VALUES ('SS', 'South Sudan');
+INSERT INTO `country` VALUES ('ST', 'Sao Tome and Principe');
+INSERT INTO `country` VALUES ('SV', 'El Salvador');
+INSERT INTO `country` VALUES ('SX', 'Sint Maarten (Dutch part)');
+INSERT INTO `country` VALUES ('SY', 'Syrian Arab Republic');
+INSERT INTO `country` VALUES ('SZ', 'Swaziland');
+INSERT INTO `country` VALUES ('TC', 'Turks and Caicos Islands');
+INSERT INTO `country` VALUES ('TD', 'Chad');
+INSERT INTO `country` VALUES ('TF', 'French Southern Territories');
+INSERT INTO `country` VALUES ('TG', 'Togo');
+INSERT INTO `country` VALUES ('TH', 'Thailand');
+INSERT INTO `country` VALUES ('TJ', 'Tajikistan');
+INSERT INTO `country` VALUES ('TK', 'Tokelau');
+INSERT INTO `country` VALUES ('TL', 'Timor-Leste');
+INSERT INTO `country` VALUES ('TM', 'Turkmenistan');
+INSERT INTO `country` VALUES ('TN', 'Tunisia');
+INSERT INTO `country` VALUES ('TO', 'Tonga');
+INSERT INTO `country` VALUES ('TR', 'Turkey');
+INSERT INTO `country` VALUES ('TT', 'Trinidad and Tobago');
+INSERT INTO `country` VALUES ('TV', 'Tuvalu');
+INSERT INTO `country` VALUES ('TW', 'Taiwan');
+INSERT INTO `country` VALUES ('TZ', 'United Republic of Tanzania');
+INSERT INTO `country` VALUES ('UA', 'Ukraine');
+INSERT INTO `country` VALUES ('UG', 'Uganda');
+INSERT INTO `country` VALUES ('UM', 'United States Minor Outlying Islands');
+INSERT INTO `country` VALUES ('US', 'USA');
+INSERT INTO `country` VALUES ('UY', 'Uruguay');
+INSERT INTO `country` VALUES ('UZ', 'Uzbekistan');
+INSERT INTO `country` VALUES ('VA', 'Holy See');
+INSERT INTO `country` VALUES ('VC', 'Saint Vincent and the Grenadines');
+INSERT INTO `country` VALUES ('VE', 'Venezuela (Bolivarian Republic of)');
+INSERT INTO `country` VALUES ('VG', 'British Virgin Islands');
+INSERT INTO `country` VALUES ('VI', 'United States Virgin Islands');
+INSERT INTO `country` VALUES ('VN', 'Viet Nam');
+INSERT INTO `country` VALUES ('VU', 'Vanuatu');
+INSERT INTO `country` VALUES ('WF', 'Wallis and Futuna Islands');
+INSERT INTO `country` VALUES ('WS', 'Samoa');
+INSERT INTO `country` VALUES ('YE', 'Yemen');
+INSERT INTO `country` VALUES ('YT', 'Mayotte');
+INSERT INTO `country` VALUES ('ZA', 'South Africa');
+INSERT INTO `country` VALUES ('ZM', 'Zambia');
+INSERT INTO `country` VALUES ('ZW', 'Zimbabwe');
+
+-- ----------------------------
+-- Table structure for `cov_news`
+-- ----------------------------
+DROP TABLE IF EXISTS `cov_news`;
+CREATE TABLE `cov_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pubDate` varchar(225) DEFAULT NULL,
+  `title` varchar(225) DEFAULT NULL,
+  `summary` varchar(2000) DEFAULT NULL,
+  `infoSource` varchar(225) DEFAULT NULL,
+  `sourceUrl` varchar(225) DEFAULT NULL,
+  `image` mediumblob,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43713 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of cov_news
+-- ----------------------------
+
 INSERT INTO `cov_news` (id,title,summary,pubDate,infoSource) VALUES (10200, '日本将于2024年2月启动第四轮核污染水排海 总量7800吨', '<div class=\"left_zw\">\n<p>　　中新网12月18日电 据日本放送协会(NHK)报道，日本东京电力公司18日表示，福岛第一核电站第四轮核污染水排海将于2024年2月下旬开始，排海总量预计为7800吨，预计将于3月结束。</p>\n<div style=\"text-align:center\"><img alt=\"\" src=\"//i2.chinanews.com.cn/simg/cmshd/2023/12/18/d957f36fa55149efb53efc75b13b7439.jpg\" style=\"border:0px solid #000000\"/></div>\n\n<p>　　报道称，东电表示，前三次核污染水排海过程中，每次都将使用海水稀释后的核污染水临时储存，以确认放射性物质氚的浓度，该步骤将减少为每年一次。</p>\n<p>　　此前报道，日本在8月24日正式启动福岛核污染水排海，并已完成三批次排放，累计排放量超2.3万吨。</p>\n<p>　　中国外交部曾表示，日本福岛核污染水排海事关人类健康、事关全球海洋环境、事关国际公共利益。日方应当严肃对待国内外的合理关切，本着负责任和建设性的态度妥善处理。日方应当以严肃认真的态度回应国际社会的关切，以负责任的方式处置核污染水，全面配合建立有日本周边邻国等利益攸关方实质性参与、长期有效的国际监测安排，防止核污染水排海造成不可挽回的后果。</p><div class=\"adEditor\"><div class=\"left_name right\"> <span>【编辑:于晓】 </span></div></div>\n</div>', '2023-12-18 20:25:00','中国新闻网');
 INSERT INTO `cov_news` (id,title,summary,pubDate,infoSource) VALUES (10201, '福岛第一核电站一名工作人员被放射性物质污染 中方回应', '<div class=\"left_zw\">\n<p>　　中新网北京12月13日电  (李京泽  谢雁冰)中国外交部发言人毛宁12月13日主持例行记者会。</p>\n<p>　　有记者提问：据报道，日本东京电力公司11日发布消息，确认1名在福岛第一核电站2号机组进行废炉作业的工作人员被放射性物质污染，存在内照射导致射线直接作用在人体器官上的可能性。中方对此有何评论？</p>\n<p>　　毛宁：我也注意到有关报道。日本福岛第一核电站退役、核污染水处置过程中，接连发生工作人员遭受核污染水溅射、放射性物质污染等事故，充分说明问题的严重性，也再次证明妥善处理核污染水的极端重要性。</p>\n<p>　　日方核污染水排海计划长达30年甚至更久，存在巨大的风险隐患。中方敦促日方重视各利益攸关方的关切，全面配合建立各方实质参与、长期有效的国际监测安排，切实防止排海对海洋环境和人类健康造成长期危害。(完）</p>\n<div class=\"adEditor\"><div class=\"left_name right\"> <span>【编辑:陈海峰】 </span></div></div>\n</div>', '2023-12-13 16:18:00','中国新闻网');
 INSERT INTO `cov_news` (id,title,summary,pubDate,infoSource) VALUES (10202, '日本福岛第一核电站一名废炉作业工人遭放射性物质污染', '<div class=\"left_zw\">\n<p>　　中新社东京12月11日电 据日本《朝日新闻》报道，东京电力公司11日发布消息称，在福岛第一核电站内进行废炉作业的一名工人面部受到放射性物质污染。</p>\n<p>　　东电公司称，遭放射性物质污染的工人为一名20多岁的男子，当日在福岛第一核电站2号机组附近对已解体的围栏进行除污作业。他在除污作业结束后，被发现鼻腔受到了放射性物质污染，其体内可能吸入了放射性物质。</p>\n<p>　　据《每日新闻》报道，东电公司称，当日14时42分左右，该名工人被确认其鼻腔受到了放射性物质污染。据福岛中央电视台报道，该名工人被检测出的数值约为正常情况下的17倍。</p>\n<p>　　东电公司推测该名工人可能是在摘除口罩时受到放射性物质污染。报道称，东电公司正在对此事进行详细调查。</p>\n<p>　　10月25日，福岛第一核电站发生放射性废液溅射事件，进行核污染水处理工作的5名作业员被放射性废液溅射，其中2人被紧急送医。(完)<div class=\"adEditor\"><div class=\"left_name right\"> <span>【编辑:张乃月】 </span></div></div>\n</p></div>', '2023-12-11 21:10:00','中国新闻网');
@@ -144,211 +475,402 @@ INSERT INTO `cov_news` (id,title,summary,pubDate,infoSource) VALUES (10252, '商
 INSERT INTO `cov_news` (id,title,summary,pubDate,infoSource) VALUES (10253, '台民间团体集会 抗议日本执意将核污染水排放入海', '<div class=\"left_zw\">\n<p>　　中新网台北9月6日电  台湾数十个政党和团体组成的反“台独”反介入联合行动9月6日在台北集会，抗议日本将核污染水排入海洋，要求民进党当局严禁从日本核污染地区进口食物。</p>\n<p>　　主办方在抗议声明中指出，日本政府和东京电力公司不顾全世界的强烈反对，8月24日开始执意将核污染水排放入海，污染全球海洋生态，严重危及人类的生存权及食品健康安全。这一核污染水排海计划，是漠视世界人权的反文明蛮横作为。民进党政府未曾做出抗议，还为日本恶劣行径辩护、对日本核污染地区食物敞开进口大门。</p>\n<p>　　面对长期的风险及危害，主办方呼吁台湾民众联合起来，以行动抗议日本政府罔顾人权的核污染水排海劣行，反对民进党当局的错误行径，严禁日本核污染地区食物进口。</p>\n<div><img alt=\"\" src=\"//i2.chinanews.com.cn/simg/ypt/2023/230906/f9afcfd2-3a9a-4624-96b4-cacbe1c6af9b_zsite.jpg\" style=\"display: block; margin: auto; cursor: pointer;\"/></div>\n\n<p>　　台湾《观察》杂志发行人纪欣在致词时表示，这次日本不顾其国内民众的反对，不顾亚洲邻居的反对，不顾对于人类健康的义务，执意排放核污染水，让人感到不可思议。</p>\n<p>　　夏潮联合会秘书长林声洲表示，福岛核泄漏事故发生十余年来，日本政府从来没有决心和能力处理这一危机，将核污染水直接排海体现其一贯的不负责任态度、把风险丢给全世界人民承担。我们提出严正抗议，并将联合台湾社会各界一起反对。</p>\n<p>　　台湾劳动党主席吴荣元代表各政党、团体向民进党当局食品安全办公室官员递交抗议信，并表示将跟踪当局“食品安全会报”相关工作进度，如果没有就禁止从日本核污染地区进口食物作出政策性规划，将继续采取抗议行动。</p>\n<div><img alt=\"\" src=\"//i2.chinanews.com.cn/simg/ypt/2023/230906/1430d083-0a9f-4a6a-aff0-e114d9085d05_zsite.jpg\" style=\"display: block; margin: auto; cursor: pointer;\"/></div>\n\n<p>　　当天还有若干反核团体在台北举行另一场抗议活动，有团体代表指出，核灾事故后受污染的水稀释后排放入海是便宜行事的做法，将其后遗症转移到太平洋更是不负责任的行为，近期还将举办活动、继续表达反对诉求。(完)</p><div class=\"adEditor\"><div class=\"left_name right\"> <span>【编辑:刘欢】 </span></div></div>\n</div>', '2023-09-06 18:42:00','中国新闻网');
 
 -- ----------------------------
--- Table structure for clicks
+-- Table structure for `covid_map`
 -- ----------------------------
-DROP TABLE IF EXISTS `clicks`;
-CREATE TABLE `clicks`  (
-  `ClickID` int(11) NOT NULL AUTO_INCREMENT,
-  `ContentID` int(11) NOT NULL,
-  `ContentType` enum('news','video') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `ClickCount` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`ClickID`) USING BTREE,
-  UNIQUE INDEX `ContentID_ContentType`(`ContentID` ASC, `ContentType` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `covid_map`;
+CREATE TABLE `covid_map` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `placename` varchar(255) NOT NULL,
+  `confirm` int(11) DEFAULT '0',
+  `cured` int(11) DEFAULT '0',
+  `death` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5157 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of clicks
+-- Records of covid_map
+-- ----------------------------
+INSERT INTO `covid_map` VALUES ('4978', '1', '2020-06-13', '阿富汗\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('4979', '2', '2020-06-13', '安哥拉\n', '0', '0', '5');
+INSERT INTO `covid_map` VALUES ('4980', '3', '2020-06-13', '阿尔巴尼亚\n', '1385', '0', '35');
+INSERT INTO `covid_map` VALUES ('4981', '4', '2020-06-13', '阿拉伯联合酋长国\n', '40986', '0', '286');
+INSERT INTO `covid_map` VALUES ('4982', '5', '2020-06-13', '阿根廷\n', '27373', '0', '765');
+INSERT INTO `covid_map` VALUES ('4983', '6', '2020-06-13', '亚美尼亚\n', '14669', '0', '245');
+INSERT INTO `covid_map` VALUES ('4984', '7', '2020-06-13', '法属南部群岛\n', '1', '0', '0');
+INSERT INTO `covid_map` VALUES ('4985', '8', '2020-06-13', '澳大利亚\n', '7289', '0', '102');
+INSERT INTO `covid_map` VALUES ('4986', '9', '2020-06-13', '奥地利\n', '17034', '0', '674');
+INSERT INTO `covid_map` VALUES ('4987', '10', '2020-06-13', '阿塞拜疆\n', '8882', '0', '108');
+INSERT INTO `covid_map` VALUES ('4988', '11', '2020-06-13', '布隆迪\n', '85', '0', '1');
+INSERT INTO `covid_map` VALUES ('4989', '12', '2020-06-13', '比利时\n', '59711', '0', '9636');
+INSERT INTO `covid_map` VALUES ('4990', '13', '2020-06-13', '贝宁\n', '305', '0', '4');
+INSERT INTO `covid_map` VALUES ('4991', '14', '2020-06-13', '布吉纳法索\n', '892', '0', '53');
+INSERT INTO `covid_map` VALUES ('4992', '15', '2020-06-13', '孟加拉国\n', '78052', '0', '1049');
+INSERT INTO `covid_map` VALUES ('4993', '16', '2020-06-13', '保加利亚\n', '3086', '0', '168');
+INSERT INTO `covid_map` VALUES ('4994', '17', '2020-06-13', '巴哈马群岛\n', '103', '0', '11');
+INSERT INTO `covid_map` VALUES ('4995', '18', '2020-06-13', '波斯尼亚和黑塞哥维那\n', '2832', '0', '161');
+INSERT INTO `covid_map` VALUES ('4996', '19', '2020-06-13', '白俄罗斯\n', '51816', '0', '293');
+INSERT INTO `covid_map` VALUES ('4997', '20', '2020-06-13', '伯利兹\n', '20', '0', '2');
+INSERT INTO `covid_map` VALUES ('4998', '21', '2020-06-13', '百慕大\n', '141', '0', '9');
+INSERT INTO `covid_map` VALUES ('4999', '22', '2020-06-13', '玻利维亚\n', '16165', '0', '533');
+INSERT INTO `covid_map` VALUES ('5000', '23', '2020-06-13', '巴西\n', '802828', '0', '40919');
+INSERT INTO `covid_map` VALUES ('5001', '24', '2020-06-13', '文莱\n', '141', '0', '2');
+INSERT INTO `covid_map` VALUES ('5002', '25', '2020-06-13', '不丹\n', '62', '0', '0');
+INSERT INTO `covid_map` VALUES ('5003', '26', '2020-06-13', '博茨瓦纳\n', '48', '0', '1');
+INSERT INTO `covid_map` VALUES ('5004', '27', '2020-06-13', '中非共和国\n', '1952', '0', '5');
+INSERT INTO `covid_map` VALUES ('5005', '28', '2020-06-13', '加拿大\n', '99159', '0', '8071');
+INSERT INTO `covid_map` VALUES ('5006', '29', '2020-06-13', '瑞士\n', '31044', '0', '1937');
+INSERT INTO `covid_map` VALUES ('5007', '30', '2020-06-13', '智利\n', '154092', '0', '2648');
+INSERT INTO `covid_map` VALUES ('5008', '31', '2020-06-13', '中国\n', '84216', '0', '4638');
+INSERT INTO `covid_map` VALUES ('5009', '32', '2020-06-13', '科特迪瓦\n', '4404', '0', '41');
+INSERT INTO `covid_map` VALUES ('5010', '33', '2020-06-13', '喀麦隆\n', '8681', '0', '212');
+INSERT INTO `covid_map` VALUES ('5011', '34', '2020-06-13', '刚果民主共和国\n', '4515', '0', '98');
+INSERT INTO `covid_map` VALUES ('5012', '35', '2020-06-13', '刚果共和国\n', '728', '0', '24');
+INSERT INTO `covid_map` VALUES ('5013', '36', '2020-06-13', '哥伦比亚\n', '43810', '0', '1505');
+INSERT INTO `covid_map` VALUES ('5014', '37', '2020-06-13', '哥斯达黎加\n', '1538', '0', '12');
+INSERT INTO `covid_map` VALUES ('5015', '38', '2020-06-13', '古巴\n', '2219', '0', '84');
+INSERT INTO `covid_map` VALUES ('5016', '39', '2020-06-13', '北塞浦路斯\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5017', '40', '2020-06-13', '塞浦路斯\n', '975', '0', '18');
+INSERT INTO `covid_map` VALUES ('5018', '41', '2020-06-13', '捷克共和国\n', '9855', '0', '328');
+INSERT INTO `covid_map` VALUES ('5019', '42', '2020-06-13', '德国\n', '186691', '0', '8772');
+INSERT INTO `covid_map` VALUES ('5020', '43', '2020-06-13', '吉布提\n', '4398', '0', '37');
+INSERT INTO `covid_map` VALUES ('5021', '44', '2020-06-13', '丹麦\n', '12222', '0', '593');
+INSERT INTO `covid_map` VALUES ('5022', '45', '2020-06-13', '多米尼加共和国\n', '21455', '0', '561');
+INSERT INTO `covid_map` VALUES ('5023', '46', '2020-06-13', '阿尔及利亚\n', '10589', '0', '741');
+INSERT INTO `covid_map` VALUES ('5024', '47', '2020-06-13', '厄瓜多尔\n', '44440', '0', '3720');
+INSERT INTO `covid_map` VALUES ('5025', '48', '2020-06-13', '埃及\n', '39726', '0', '1377');
+INSERT INTO `covid_map` VALUES ('5026', '49', '2020-06-13', '厄立特里亚\n', '41', '0', '0');
+INSERT INTO `covid_map` VALUES ('5027', '50', '2020-06-13', '西班牙\n', '242707', '0', '27136');
+INSERT INTO `covid_map` VALUES ('5028', '51', '2020-06-13', '爱沙尼亚\n', '1965', '0', '69');
+INSERT INTO `covid_map` VALUES ('5029', '52', '2020-06-13', '埃塞俄比亚\n', '2670', '0', '40');
+INSERT INTO `covid_map` VALUES ('5030', '53', '2020-06-13', '芬兰\n', '7064', '0', '325');
+INSERT INTO `covid_map` VALUES ('5031', '54', '2020-06-13', '斐济\n', '18', '0', '0');
+INSERT INTO `covid_map` VALUES ('5032', '55', '2020-06-13', '福克兰群岛\n', '13', '0', '0');
+INSERT INTO `covid_map` VALUES ('5033', '56', '2020-06-13', '法国\n', '191554', '0', '29347');
+INSERT INTO `covid_map` VALUES ('5034', '57', '2020-06-13', '加蓬\n', '3463', '0', '23');
+INSERT INTO `covid_map` VALUES ('5035', '58', '2020-06-13', '英国\n', '292706', '0', '41355');
+INSERT INTO `covid_map` VALUES ('5036', '59', '2020-06-13', '乔治亚州\n', '831', '0', '13');
+INSERT INTO `covid_map` VALUES ('5037', '60', '2020-06-13', '加纳\n', '10358', '0', '48');
+INSERT INTO `covid_map` VALUES ('5038', '61', '2020-06-13', '几内亚\n', '4372', '0', '23');
+INSERT INTO `covid_map` VALUES ('5039', '62', '2020-06-13', '冈比亚\n', '28', '0', '1');
+INSERT INTO `covid_map` VALUES ('5040', '63', '2020-06-13', '几内亚比绍\n', '1389', '0', '12');
+INSERT INTO `covid_map` VALUES ('5041', '64', '2020-06-13', '赤道几内亚\n', '1306', '0', '12');
+INSERT INTO `covid_map` VALUES ('5042', '65', '2020-06-13', '希腊\n', '3088', '0', '183');
+INSERT INTO `covid_map` VALUES ('5043', '66', '2020-06-13', '格陵兰岛\n', '13', '0', '0');
+INSERT INTO `covid_map` VALUES ('5044', '67', '2020-06-13', '危地马拉\n', '8561', '0', '334');
+INSERT INTO `covid_map` VALUES ('5045', '68', '2020-06-13', '法属圭亚那\n', '917', '0', '2');
+INSERT INTO `covid_map` VALUES ('5046', '69', '2020-06-13', '圭亚那\n', '158', '0', '12');
+INSERT INTO `covid_map` VALUES ('5047', '70', '2020-06-13', '洪都拉斯\n', '7669', '0', '294');
+INSERT INTO `covid_map` VALUES ('5048', '71', '2020-06-13', '克罗地亚\n', '2249', '0', '106');
+INSERT INTO `covid_map` VALUES ('5049', '72', '2020-06-13', '海地\n', '3941', '0', '64');
+INSERT INTO `covid_map` VALUES ('5050', '73', '2020-06-13', '匈牙利\n', '4039', '0', '553');
+INSERT INTO `covid_map` VALUES ('5051', '74', '2020-06-13', '印尼\n', '35295', '0', '2000');
+INSERT INTO `covid_map` VALUES ('5052', '75', '2020-06-13', '印度\n', '297535', '0', '8498');
+INSERT INTO `covid_map` VALUES ('5053', '76', '2020-06-13', '爱尔兰\n', '25238', '0', '1703');
+INSERT INTO `covid_map` VALUES ('5054', '77', '2020-06-13', '伊朗\n', '180156', '0', '8584');
+INSERT INTO `covid_map` VALUES ('5055', '78', '2020-06-13', '伊拉克\n', '16675', '0', '457');
+INSERT INTO `covid_map` VALUES ('5056', '79', '2020-06-13', '冰岛\n', '1807', '0', '10');
+INSERT INTO `covid_map` VALUES ('5057', '80', '2020-06-13', '以色列\n', '18569', '0', '300');
+INSERT INTO `covid_map` VALUES ('5058', '81', '2020-06-13', '意大利\n', '236142', '0', '34167');
+INSERT INTO `covid_map` VALUES ('5059', '82', '2020-06-13', '牙买加\n', '611', '0', '10');
+INSERT INTO `covid_map` VALUES ('5060', '83', '2020-06-13', '约旦\n', '890', '0', '9');
+INSERT INTO `covid_map` VALUES ('5061', '84', '2020-06-13', '日本\n', '17187', '0', '922');
+INSERT INTO `covid_map` VALUES ('5062', '85', '2020-06-13', '哈萨克斯坦\n', '13872', '0', '67');
+INSERT INTO `covid_map` VALUES ('5063', '86', '2020-06-13', '肯尼亚\n', '3215', '0', '92');
+INSERT INTO `covid_map` VALUES ('5064', '87', '2020-06-13', '吉尔吉斯斯坦\n', '2166', '0', '26');
+INSERT INTO `covid_map` VALUES ('5065', '88', '2020-06-13', '柬埔寨\n', '126', '0', '0');
+INSERT INTO `covid_map` VALUES ('5066', '89', '2020-06-13', '韩国\n', '12003', '0', '277');
+INSERT INTO `covid_map` VALUES ('5067', '90', '2020-06-13', '科索沃\n', '1326', '0', '31');
+INSERT INTO `covid_map` VALUES ('5068', '91', '2020-06-13', '科威特\n', '34432', '0', '279');
+INSERT INTO `covid_map` VALUES ('5069', '92', '2020-06-13', '老挝\n', '19', '0', '0');
+INSERT INTO `covid_map` VALUES ('5070', '93', '2020-06-13', '黎巴嫩\n', '1402', '0', '31');
+INSERT INTO `covid_map` VALUES ('5071', '94', '2020-06-13', '利比里亚\n', '410', '0', '31');
+INSERT INTO `covid_map` VALUES ('5072', '95', '2020-06-13', '利比亚\n', '393', '0', '5');
+INSERT INTO `covid_map` VALUES ('5073', '96', '2020-06-13', '斯里兰卡\n', '1877', '0', '11');
+INSERT INTO `covid_map` VALUES ('5074', '97', '2020-06-13', '莱索托\n', '4', '0', '0');
+INSERT INTO `covid_map` VALUES ('5075', '98', '2020-06-13', '立陶宛\n', '1752', '0', '74');
+INSERT INTO `covid_map` VALUES ('5076', '99', '2020-06-13', '卢森堡\n', '4052', '0', '110');
+INSERT INTO `covid_map` VALUES ('5077', '100', '2020-06-13', '拉脱维亚\n', '1094', '0', '26');
+INSERT INTO `covid_map` VALUES ('5078', '101', '2020-06-13', '摩洛哥\n', '8537', '0', '211');
+INSERT INTO `covid_map` VALUES ('5079', '102', '2020-06-13', '摩尔多瓦\n', '10727', '0', '375');
+INSERT INTO `covid_map` VALUES ('5080', '103', '2020-06-13', '马达加斯加\n', '1203', '0', '10');
+INSERT INTO `covid_map` VALUES ('5081', '104', '2020-06-13', '墨西哥\n', '133974', '0', '15944');
+INSERT INTO `covid_map` VALUES ('5082', '105', '2020-06-13', '马其顿\n', '3538', '0', '169');
+INSERT INTO `covid_map` VALUES ('5083', '106', '2020-06-13', '马里\n', '1722', '0', '97');
+INSERT INTO `covid_map` VALUES ('5084', '107', '2020-06-13', '马耳他\n', '640', '0', '9');
+INSERT INTO `covid_map` VALUES ('5085', '108', '2020-06-13', '缅甸\n', '260', '0', '6');
+INSERT INTO `covid_map` VALUES ('5086', '109', '2020-06-13', '黑山共和国\n', '324', '0', '9');
+INSERT INTO `covid_map` VALUES ('5087', '110', '2020-06-13', '蒙古\n', '197', '0', '0');
+INSERT INTO `covid_map` VALUES ('5088', '111', '2020-06-13', '莫桑比克\n', '489', '0', '2');
+INSERT INTO `covid_map` VALUES ('5089', '112', '2020-06-13', '毛利塔尼亚\n', '1439', '0', '74');
+INSERT INTO `covid_map` VALUES ('5090', '113', '2020-06-13', '马拉维\n', '481', '0', '4');
+INSERT INTO `covid_map` VALUES ('5091', '114', '2020-06-13', '马来西亚\n', '8369', '0', '118');
+INSERT INTO `covid_map` VALUES ('5092', '115', '2020-06-13', '纳米比亚\n', '31', '0', '0');
+INSERT INTO `covid_map` VALUES ('5093', '116', '2020-06-13', '新喀里多尼亚\n', '21', '0', '0');
+INSERT INTO `covid_map` VALUES ('5094', '117', '2020-06-13', '尼日尔\n', '974', '0', '65');
+INSERT INTO `covid_map` VALUES ('5095', '118', '2020-06-13', '尼日利亚\n', '14554', '0', '387');
+INSERT INTO `covid_map` VALUES ('5096', '119', '2020-06-13', '尼加拉瓜\n', '1464', '0', '55');
+INSERT INTO `covid_map` VALUES ('5097', '120', '2020-06-13', '荷兰\n', '48458', '0', '6063');
+INSERT INTO `covid_map` VALUES ('5098', '121', '2020-06-13', '挪威\n', '8608', '0', '242');
+INSERT INTO `covid_map` VALUES ('5099', '122', '2020-06-13', '尼泊尔\n', '4614', '0', '15');
+INSERT INTO `covid_map` VALUES ('5100', '123', '2020-06-13', '新西兰\n', '1504', '0', '22');
+INSERT INTO `covid_map` VALUES ('5101', '124', '2020-06-13', '阿曼\n', '19954', '0', '89');
+INSERT INTO `covid_map` VALUES ('5102', '125', '2020-06-13', '巴基斯坦\n', '125933', '0', '2463');
+INSERT INTO `covid_map` VALUES ('5103', '126', '2020-06-13', '巴拿马\n', '18586', '0', '418');
+INSERT INTO `covid_map` VALUES ('5104', '127', '2020-06-13', '秘鲁\n', '214788', '0', '6088');
+INSERT INTO `covid_map` VALUES ('5105', '128', '2020-06-13', '菲律宾\n', '24175', '0', '1036');
+INSERT INTO `covid_map` VALUES ('5106', '129', '2020-06-13', '巴布新几内亚\n', '8', '0', '0');
+INSERT INTO `covid_map` VALUES ('5107', '130', '2020-06-13', '波兰\n', '28201', '0', '1215');
+INSERT INTO `covid_map` VALUES ('5108', '131', '2020-06-13', '波多黎各\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5109', '132', '2020-06-13', '朝鲜\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5110', '133', '2020-06-13', '葡萄牙\n', '35910', '0', '1504');
+INSERT INTO `covid_map` VALUES ('5111', '134', '2020-06-13', '巴拉圭\n', '1230', '0', '11');
+INSERT INTO `covid_map` VALUES ('5112', '135', '2020-06-13', '卡塔尔\n', '75071', '0', '69');
+INSERT INTO `covid_map` VALUES ('5113', '136', '2020-06-13', '罗马尼亚\n', '21182', '0', '1369');
+INSERT INTO `covid_map` VALUES ('5114', '137', '2020-06-13', '俄罗斯\n', '501800', '0', '6522');
+INSERT INTO `covid_map` VALUES ('5115', '138', '2020-06-13', '卢旺达\n', '494', '0', '2');
+INSERT INTO `covid_map` VALUES ('5116', '139', '2020-06-13', '西撒哈拉\n', '9', '0', '1');
+INSERT INTO `covid_map` VALUES ('5117', '140', '2020-06-13', '沙特阿拉伯\n', '116021', '0', '857');
+INSERT INTO `covid_map` VALUES ('5118', '141', '2020-06-13', '苏丹\n', '6730', '0', '413');
+INSERT INTO `covid_map` VALUES ('5119', '142', '2020-06-13', '南苏丹\n', '1670', '0', '24');
+INSERT INTO `covid_map` VALUES ('5120', '143', '2020-06-13', '塞内加尔\n', '4759', '0', '55');
+INSERT INTO `covid_map` VALUES ('5121', '144', '2020-06-13', '所罗门群岛\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5122', '145', '2020-06-13', '塞拉利昂\n', '1085', '0', '50');
+INSERT INTO `covid_map` VALUES ('5123', '146', '2020-06-13', '萨尔瓦多\n', '3373', '0', '68');
+INSERT INTO `covid_map` VALUES ('5124', '147', '2020-06-13', '索马里兰\n', '2513', '0', '85');
+INSERT INTO `covid_map` VALUES ('5125', '148', '2020-06-13', '索马里\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5126', '149', '2020-06-13', '塞尔维亚共和国\n', '12102', '0', '252');
+INSERT INTO `covid_map` VALUES ('5127', '150', '2020-06-13', '苏里南\n', '168', '0', '2');
+INSERT INTO `covid_map` VALUES ('5128', '151', '2020-06-13', '斯洛伐克\n', '1541', '0', '28');
+INSERT INTO `covid_map` VALUES ('5129', '152', '2020-06-13', '斯洛文尼亚\n', '1488', '0', '109');
+INSERT INTO `covid_map` VALUES ('5130', '153', '2020-06-13', '瑞典\n', '48288', '0', '4814');
+INSERT INTO `covid_map` VALUES ('5131', '154', '2020-06-13', '斯威士兰\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5132', '155', '2020-06-13', '叙利亚\n', '164', '0', '6');
+INSERT INTO `covid_map` VALUES ('5133', '156', '2020-06-13', '乍得\n', '848', '0', '72');
+INSERT INTO `covid_map` VALUES ('5134', '157', '2020-06-13', '多哥\n', '524', '0', '13');
+INSERT INTO `covid_map` VALUES ('5135', '158', '2020-06-13', '泰国\n', '3125', '0', '58');
+INSERT INTO `covid_map` VALUES ('5136', '159', '2020-06-13', '塔吉克斯坦\n', '4834', '0', '49');
+INSERT INTO `covid_map` VALUES ('5137', '160', '2020-06-13', '土库曼斯坦\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5138', '161', '2020-06-13', '东帝汶\n', '24', '0', '0');
+INSERT INTO `covid_map` VALUES ('5139', '162', '2020-06-13', '特立尼达和多巴哥\n', '117', '0', '8');
+INSERT INTO `covid_map` VALUES ('5140', '163', '2020-06-13', '突尼斯\n', '1087', '0', '49');
+INSERT INTO `covid_map` VALUES ('5141', '164', '2020-06-13', '土耳其\n', '174023', '0', '4763');
+INSERT INTO `covid_map` VALUES ('5142', '165', '2020-06-13', '中国台湾\n', '443', '0', '7');
+INSERT INTO `covid_map` VALUES ('5143', '166', '2020-06-13', '坦桑尼亚联合共和国\n', '509', '0', '21');
+INSERT INTO `covid_map` VALUES ('5144', '167', '2020-06-13', '乌干达\n', '679', '0', '0');
+INSERT INTO `covid_map` VALUES ('5145', '168', '2020-06-13', '乌克兰\n', '29706', '0', '864');
+INSERT INTO `covid_map` VALUES ('5146', '169', '2020-06-13', '乌拉圭\n', '847', '0', '23');
+INSERT INTO `covid_map` VALUES ('5147', '170', '2020-06-13', '美国\n', '2023590', '0', '113823');
+INSERT INTO `covid_map` VALUES ('5148', '171', '2020-06-13', '乌兹别克斯坦\n', '4741', '0', '19');
+INSERT INTO `covid_map` VALUES ('5149', '172', '2020-06-13', '委内瑞拉\n', '2814', '0', '23');
+INSERT INTO `covid_map` VALUES ('5150', '173', '2020-06-13', '越南\n', '332', '0', '0');
+INSERT INTO `covid_map` VALUES ('5151', '174', '2020-06-13', '瓦努阿图\n', '0', '0', '0');
+INSERT INTO `covid_map` VALUES ('5152', '175', '2020-06-13', '约旦河西岸与加沙地区\n', '487', '0', '3');
+INSERT INTO `covid_map` VALUES ('5153', '176', '2020-06-13', '也门\n', '591', '0', '136');
+INSERT INTO `covid_map` VALUES ('5154', '177', '2020-06-13', '南非\n', '58568', '0', '1284');
+INSERT INTO `covid_map` VALUES ('5155', '178', '2020-06-13', '赞比亚\n', '63429', '0', '220');
+INSERT INTO `covid_map` VALUES ('5156', '179', '2020-06-13', '津巴布韦\n', '1044', '0', '17');
+
+-- ----------------------------
+-- Table structure for `migration`
+-- ----------------------------
+DROP TABLE IF EXISTS `migration`;
+CREATE TABLE `migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of migration
+-- ----------------------------
+INSERT INTO `migration` VALUES ('m000000_000000_base', '1587561487');
+INSERT INTO `migration` VALUES ('m130524_201442_init', '1587561498');
+INSERT INTO `migration` VALUES ('m180628_144021_create_table_visitor', '1590677975');
+INSERT INTO `migration` VALUES ('m180628_144042_create_table_visitor_log', '1590678493');
+INSERT INTO `migration` VALUES ('m180628_144113_create_table_visitor_agent', '1590678728');
+INSERT INTO `migration` VALUES ('m180628_144130_create_table_country', '1590678729');
+INSERT INTO `migration` VALUES ('m180630_142222_create_table_visitor_service_error', '1590678729');
+INSERT INTO `migration` VALUES ('m190124_110200_add_verification_token_column_to_user_table', '1587561499');
+INSERT INTO `migration` VALUES ('m200424_120117_create_article_table', '1588648352');
+INSERT INTO `migration` VALUES ('m200424_120247_create_category_table', '1588648352');
+INSERT INTO `migration` VALUES ('m200424_120310_create_tag_table', '1588648352');
+INSERT INTO `migration` VALUES ('m200424_120410_create_comment_table', '1588648353');
+INSERT INTO `migration` VALUES ('m200424_120432_create_article_tag_table', '1588648354');
+INSERT INTO `migration` VALUES ('m200502_141910_create_video_table', '1588648354');
+INSERT INTO `migration` VALUES ('m200504_035720_create_video_view_table', '1588648355');
+INSERT INTO `migration` VALUES ('m200504_041125_create_video_like_table', '1588648356');
+INSERT INTO `migration` VALUES ('m200504_065820_create_subscriber_table', '1588648357');
+INSERT INTO `migration` VALUES ('m200504_092524_create_fulltext_index_on_video', '1588648357');
+INSERT INTO `migration` VALUES ('m200509_083851_add_date_to_comment', '1589013653');
+INSERT INTO `migration` VALUES ('m200514_152015_covid_map', '1589470243');
+
+-- ----------------------------
+-- Table structure for `pcounter_save`
+-- ----------------------------
+DROP TABLE IF EXISTS `pcounter_save`;
+CREATE TABLE `pcounter_save` (
+  `save_name` varchar(10) NOT NULL,
+  `save_value` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`save_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of pcounter_save
+-- ----------------------------
+INSERT INTO `pcounter_save` VALUES ('counter', '12');
+INSERT INTO `pcounter_save` VALUES ('day_time', '2459014');
+INSERT INTO `pcounter_save` VALUES ('max_count', '5');
+INSERT INTO `pcounter_save` VALUES ('max_time', '1591437600');
+INSERT INTO `pcounter_save` VALUES ('yesterday', '1');
+
+-- ----------------------------
+-- Table structure for `pcounter_users`
+-- ----------------------------
+DROP TABLE IF EXISTS `pcounter_users`;
+CREATE TABLE `pcounter_users` (
+  `user_ip` varchar(32) NOT NULL,
+  `user_time` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`user_ip`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of pcounter_users
+-- ----------------------------
+INSERT INTO `pcounter_users` VALUES ('111.74.54.135', '1592036408');
+INSERT INTO `pcounter_users` VALUES ('127.0.0.1', '1592054027');
+INSERT INTO `pcounter_users` VALUES ('::1', '1592018755');
+
+-- ----------------------------
+-- Table structure for `subscriber`
+-- ----------------------------
+DROP TABLE IF EXISTS `subscriber`;
+CREATE TABLE `subscriber` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `channel_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx-subscriber-channel_id` (`channel_id`),
+  KEY `idx-subscriber-user_id` (`user_id`),
+  CONSTRAINT `fk-subscriber-channel_id` FOREIGN KEY (`channel_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk-subscriber-user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of subscriber
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for personalinfo
+-- Table structure for `tag`
 -- ----------------------------
-DROP TABLE IF EXISTS `personalinfo`;
-CREATE TABLE `personalinfo`  (
-  `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `Info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `AvatarURL` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `Email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `GitHubAccount` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `WeChatID` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`Name`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `tag`;
+CREATE TABLE `tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of personalinfo
+-- Records of tag
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for users
+-- Table structure for `user`
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users`  (
-  `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `Password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`UserID`) USING BTREE,
-  UNIQUE INDEX `Username`(`Username` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `auth_key` varchar(32) NOT NULL,
+  `password_hash` varchar(256) NOT NULL,
+  `password_reset_token` varchar(256) DEFAULT NULL,
+  `email` varchar(256) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL,
+  `updated_at` int(11) NOT NULL,
+  `verification_token` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of users
--- ----------------------------
-INSERT INTO `users` VALUES (1, 'admin', '1234');
-
--- ----------------------------
--- Table structure for videocomments
--- ----------------------------
-DROP TABLE IF EXISTS `videocomments`;
-CREATE TABLE `videocomments`  (
-  `CommentID` int(11) NOT NULL AUTO_INCREMENT,
-  `video_id` int(11) NOT NULL,
-  `Comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `CommentDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `Username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`CommentID`) USING BTREE,
-  INDEX `video_id`(`video_id` ASC) USING BTREE,
-  INDEX `fk_video_comments_username`(`Username` ASC) USING BTREE,
-  CONSTRAINT `fk_video_comments_username` FOREIGN KEY (`Username`) REFERENCES `users` (`username`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `video_comments_ibfk_2` FOREIGN KEY (`video_id`) REFERENCES `videos` (`video_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of videocomments
+-- Records of user
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for videolikes
--- ----------------------------
-DROP TABLE IF EXISTS `videolikes`;
-CREATE TABLE `videolikes`  (
-  `LikeID` int(11) NOT NULL AUTO_INCREMENT,
-  `video_id` int(11) NOT NULL,
-  `Likes` int(11) NULL DEFAULT 0,
-  PRIMARY KEY (`LikeID`) USING BTREE,
-  INDEX `video_id`(`video_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Fixed;
-
--- ----------------------------
--- Records of videolikes
--- ----------------------------
-
--- ----------------------------
--- Table structure for videos
+-- Table structure for `video`
 -- ----------------------------
 DROP TABLE IF EXISTS `video`;
-CREATE TABLE `video`  (
-  `video_id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `PictureURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `created_at` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `VideoURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`video_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30013609 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+CREATE TABLE `video` (
+  `video_id` int(16) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text,
+  `tags` varchar(512) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  `has_thumbnail` tinyint(1) DEFAULT NULL,
+  `video_name` varchar(255) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  PRIMARY KEY (`video_id`),
+  KEY `idx-video-created_by` (`created_by`),
+  FULLTEXT KEY `title` (`title`,`description`,`tags`),
+  CONSTRAINT `fk-video-created_by` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of videos
+-- Records of video
 -- ----------------------------
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29992492', 'CCTV-13新闻频道', '日本福岛第一核电站工作人员遭核污染 
-外交部：再次证明妥处核污染水极端重要', 'https://p5.img.cctvpic.com/fmspic/2023/12/13/ff3be23f0891410f9cc4303fbf39f2dc-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/12/13/ff3be23f0891410f9cc4303fbf39f2dc_h2642000000nero_aac16.mp4','2023-12-13 16:52:34');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29715034', 'CCTV-2财经频道', '关注日本核污染水排海 斐济民众抗议日 
-本核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/08/26/9a6db7c97fa942cba1b9943e8114602a-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/26/9a6db7c97fa942cba1b9943e8114602a_h2642000000nero_aac16-1.mp4','2023-08-26 12:45:32');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29710319', 'CCTV-2财经频道', '日本启动核污染水排海 无视多方反对 日
-本今日启动核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/24/59224a1eb0a7404797acc399c5e7ba97-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/59224a1eb0a7404797acc399c5e7ba97_h2642000000nero_aac16.mp4','2023-08-24 15:13:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708215', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p3.img.cctvpic.com/fmspic/2023/08/23/d3529e822da8450caabf2b6537f371ff-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/d3529e822da8450caabf2b6537f371ff_h2642000000nero_aac16.mp4','2023-08-23 18:29:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29725597', 'CCTV-2财经频道', '关注日本核污染水排海 韩国民众举行集 
-会 反对日本核污染水排海', 'https://p3.img.cctvpic.com/fmspic/2023/08/30/5ea29000ab6a4a4594015b3e3fe2f330-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/30/5ea29000ab6a4a4594015b3e3fe2f330_h2642000000nero_aac16.mp4','2023-08-30 12:59:38');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708740', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p5.img.cctvpic.com/fmspic/2023/08/23/97ba39c451aa4e78b76efee099791281-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/97ba39c451aa4e78b76efee099791281_h2642000000nero_aac16.mp4','2023-08-23 22:17:25');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29703540', 'CCTV-1综合频道', '【多方反对日本强推核污染水排海】福岛
-各界举行圆桌会 反对核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/08/21/ff915da8c7014ed18447a83faf1869ba-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/21/ff915da8c7014ed18447a83faf1869ba_2000_h264_1872_aac_128.mp4','2023-08-21 22:30:29');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29715991', 'CCTV-2财经频道', '关注日本核污染水排海 斐济民众抗议日 
-本核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/26/097253fac2f644a68ed75e1eeed05158-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/26/097253fac2f644a68ed75e1eeed05158_h2642000000nero_aac16.mp4','2023-08-26 20:51:32');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29709106', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p5.img.cctvpic.com/fmspic/2023/08/24/b2e2d9e6b141426cac7004b676220f25-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/b2e2d9e6b141426cac7004b676220f25_h2642000000nero_aac16.mp4','2023-08-24 05:15:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29709097', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p2.img.cctvpic.com/fmspic/2023/08/24/70ca86ee4145448eb09b590892efb054-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/70ca86ee4145448eb09b590892efb054_h2642000000nero_aac16.mp4','2023-08-24 05:05:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708540', 'CCTV-13新闻频道', '核污染风险笼罩全球 日本为何强推排海
-？17天排放7800吨核污染水', 'https://p1.img.cctvpic.com/fmspic/2023/08/23/6f29a560f9584cfbb60a8267200d7a9e-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/6f29a560f9584cfbb60a8267200d7a9e_h2642000000nero_aac16.mp4','2023-08-23 21:05:26');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708537', 'CCTV-2财经频道', '关注日本核污染水排海 韩国民众强烈抗 
-议日本核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/23/7deb70b63ac04673b595fc8684441501-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/7deb70b63ac04673b595fc8684441501_h2642000000nero_aac16-1.mp4','2023-08-23 21:03:26');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29712191', 'CCTV-2财经频道', '关注日本核污染水排海 无视多方反对 日
-本昨日强行启动核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/25/ef6a60db217a4a05a9aeab86958dcf9e-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/25/ef6a60db217a4a05a9aeab86958dcf9e_h2642000000nero_aac16.mp4','2023-08-25 10:15:33');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29710487', 'CCTV-2财经频道', '日本启动核污染水排海 专家：日本偷换 
-概念 为核污染水排海洗白', 'https://p1.img.cctvpic.com/fmspic/2023/08/24/a378d960c1124c5bbf77623fc5ea3131-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/a378d960c1124c5bbf77623fc5ea3131_h2642000000nero_aac16-1.mp4','2023-08-24 16:25:28');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29704575', 'CCTV-2财经频道', '日本强推核污染水排海 日本政府宣布本 
-月24日启动核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/22/7a9495db42d34afb8a110ea09afd05b6-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/22/7a9495db42d34afb8a110ea09afd05b6_h2642000000nero_aac16-1.mp4','2023-08-22 11:09:24');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29711374', 'CCTV-13新闻频道', '无视多方反对 日本今日启动核污染水排
-海 日本各界反对核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/24/62471935a1f34dfeb74f85b2f2a6f442-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/62471935a1f34dfeb74f85b2f2a6f442_h2642000000nero_aac16.mp4','2023-08-24 23:29:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708000', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 专家：
-福岛核污染水排海后患无穷', 'https://p3.img.cctvpic.com/fmspic/2023/08/23/a24cd51e029a4f4ea8c23e9a46435771-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/a24cd51e029a4f4ea8c23e9a46435771_h2642000000nero_aac16-1.mp4','2023-08-23 16:43:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29706235', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 首相官
-邸前 民众集会反对核污染水排海', 'https://p3.img.cctvpic.com/fmspic/2023/08/22/95723ea577514a60ae5b41318cee199f-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/22/95723ea577514a60ae5b41318cee199f_h2642000000nero_aac16.mp4','2023-08-22 22:19:24');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29702931', 'CCTV-4中文国际频道', '多方反对日本强推核污染水排海 日 
-本全渔联重申坚决反对核污染水排海', 'https://p2.img.cctvpic.com/fmspic/2023/08/21/645f9e0dc2e2433ba7615b9ffb02aafd-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/21/645f9e0dc2e2433ba7615b9ffb02aafd_h2642000000nero_aac16.mp4','2023-08-21 18:15:23');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29655652', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 日本民
-众再次集会 坚决反对核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/03/a60c4d9856f8497cb3239995b964d075-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/03/a60c4d9856f8497cb3239995b964d075_h2642000000nero_aac16-1.mp4','2023-08-03 07:00:54');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29643480', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 日本民
-众再次集会 坚决反对核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/07/29/e6fd007ad0a8491a9cc4da8a509aec30-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/07/29/e6fd007ad0a8491a9cc4da8a509aec30_h2642000000nero_aac16.mp4','2023-07-29 08:44:42');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29715013', 'CCTV-2财经频道', '关注日本核污染水排海 核污染水排海给 
-福岛拖网捕鱼季蒙上阴影', 'https://p2.img.cctvpic.com/fmspic/2023/08/26/8554ab21939741fc9af7c7783178465e-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/26/8554ab21939741fc9af7c7783178465e_h2642000000nero_aac16-1.mp4','2023-08-26 12:35:31');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29709131', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p1.img.cctvpic.com/fmspic/2023/08/24/e6f145b3ddd342ada6406fbbc24ee48d-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/e6f145b3ddd342ada6406fbbc24ee48d_h2642000000nero_aac16.mp4','2023-08-24 05:47:27');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29707898', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 福岛民
-众抗议核污染水排海决定', 'https://p5.img.cctvpic.com/fmspic/2023/08/23/de491ddf43644353907f2b2ea4eb7203-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/de491ddf43644353907f2b2ea4eb7203_h2642000000nero_aac16.mp4','2023-08-23 15:51:25');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29706500', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 韩国多
-个团体抗议日本强推核污染水排海', 'https://p2.img.cctvpic.com/fmspic/2023/08/23/f07b650840d2415da95e65ca3e84063e-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/f07b650840d2415da95e65ca3e84063e_h2642000000nero_aac16.mp4','2023-08-23 01:11:24');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29706499', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 首相官
-邸前 民众集会反对核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/23/25d42bf97c4b4a15ae50d2741d0f1819-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/25d42bf97c4b4a15ae50d2741d0f1819_h2642000000nero_aac16.mp4','2023-08-23 01:09:24');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29705521', 'CCTV-2财经频道', '多方反对日本强推核污染水排海 首相官 
-邸前 民众集会反对核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/22/19c8e460fa1a4353bd0427803fce600b-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/22/19c8e460fa1a4353bd0427803fce600b_h2642000000nero_aac16.mp4','2023-08-22 17:41:25');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29751252', 'CCTV-4中文国际频道', '多方反对日本强推核污染水排海 市 
-民团体提起诉讼 要求停止核污染水排海', 'https://p2.img.cctvpic.com/fmspic/2023/09/09/e449e3da463a40d1979c443e1c1f71d6-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/09/09/e449e3da463a40d1979c443e1c1f71d6_h2642000000nero_aac16-1.mp4','2023-09-09 07:13:54');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29718143', 'CCTV-7国防军事频道', '多方反对日本强推核污染水排海 日 
-本民众在福岛集会 抗议核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/27/678cbf5cd03d4ac989b50bd08634d62a-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/27/678cbf5cd03d4ac989b50bd08634d62a_h2642000000nero_aac16.mp4','2023-08-27 20:13:36');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29717231', 'CCTV-2财经频道', '关注日本核污染水排海 韩国：数万民众 
-集会 谴责日本核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/27/cecf366b0f5a47c480f6131d8b51064f-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/27/cecf366b0f5a47c480f6131d8b51064f_h2642000000nero_aac16-1.mp4','2023-08-27 12:11:33');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29715035', 'CCTV-2财经频道', '关注日本核污染水排海 核污染水排海致 
-韩国水产业遭受巨大损失', 'https://p1.img.cctvpic.com/fmspic/2023/08/26/23ac1e0a845048508f5b202021f45b17-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/26/23ac1e0a845048508f5b202021f45b17_h2642000000nero_aac16-1.mp4','2023-08-26 12:45:31');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29712472', 'CCTV-2财经频道', '关注日本核污染水排海 日本政府强推核 
-污染水排海 韩国国内不安情绪蔓延', 'https://p1.img.cctvpic.com/fmspic/2023/08/25/f8a243ee6abb49c5a6066f26a441dab8-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/25/f8a243ee6abb49c5a6066f26a441dab8_h2642000000nero_aac16-1.mp4','2023-08-25 12:19:30');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29711033', 'CCTV-2财经频道', '关注日本核污染水排海 无视多方反对 日
-本今日启动核污染水排海', 'https://p2.img.cctvpic.com/fmspic/2023/08/24/84e684126ecd4b11a7957787eabda671-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/24/84e684126ecd4b11a7957787eabda671_h2642000000nero_aac16.mp4','2023-08-24 20:57:28');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708533', 'CCTV-13新闻频道', '核污染风险笼罩全球 日本为何强推排海
-？为何多方强烈反对核污染水排海？', 'https://p2.img.cctvpic.com/fmspic/2023/08/23/b8026afbf9b544208f2e3fc9d46f0861-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/b8026afbf9b544208f2e3fc9d46f0861_h2642000000nero_aac16-1.mp4','2023-08-23 21:01:26');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708335', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 韩国民
-众强烈抗议日本核污染水排海', 'https://p4.img.cctvpic.com/fmspic/2023/08/23/34c9f5e7f26e4cdabecd17bebaca9ffd-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/34c9f5e7f26e4cdabecd17bebaca9ffd_h2642000000nero_aac16-1.mp4','2023-08-23 19:21:25');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29731296', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 日本水
-俣病受害团体呼吁停止核污染水排海', 'https://p3.img.cctvpic.com/fmspic/2023/09/01/88e88ac68461487d94a17273a258a1e9-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/09/01/88e88ac68461487d94a17273a258a1e9_h2642000000nero_aac16.mp4','2023-09-01 14:35:41');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29730117', 'CCTV-13新闻频道', '多方反对日本强推核污染水排海 水俣病
-受害者团体要求停止核污染水排海', 'https://p3.img.cctvpic.com/fmspic/2023/09/01/6086f01ec7594f739c4f37234974e60a-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/09/01/6086f01ec7594f739c4f37234974e60a_h2642000000nero_aac16.mp4','2023-09-01 08:45:41');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29718244', 'CCTV-2财经频道', '关注日本核污染水排海 韩国：数万民众 
-集会 谴责日本核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/08/27/9690fbab05b64a85a05d0dc5b2bd72bf-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/27/9690fbab05b64a85a05d0dc5b2bd72bf_h2642000000nero_aac16-1.mp4','2023-08-27 20:57:33');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29717250', 'CCTV-4中文国际频道', '多方反对日本强推核污染水排海 韩 
-国举行大规模集会抗议福岛核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/27/9a49fe84a1b04a17b90dc7eaf6de3056-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/27/9a49fe84a1b04a17b90dc7eaf6de3056_h2642000000nero_aac16-1.mp4','2023-08-27 12:17:33');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29716616', 'CCTV-4中文国际频道', '多方反对日本强推核污染水排海 韩 
-国举行大规模集会抗议福岛核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/08/27/a2071bfedf254706952a446f51811472-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/27/a2071bfedf254706952a446f51811472_h2642000000nero_aac16-1.mp4','2023-08-27 07:23:33');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29712852', 'CCTV-2财经频道', '日本核污染水排海 日本民众在福岛县政 
-府大楼外抗议核污染水排海', 'https://p1.img.cctvpic.com/fmspic/2023/08/25/a3c9579c1d644e4e8bcf5c8796428cf4-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/25/a3c9579c1d644e4e8bcf5c8796428cf4_h2642000000nero_aac16-1.mp4','2023-08-25 15:29:34');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29712736', 'CCTV-2财经频道', '日本核污染水排海 日本民众在福岛县政 
-府大楼外抗议核污染水排海', 'https://p5.img.cctvpic.com/fmspic/2023/08/25/f0f0519d81e94823ab0408cad8435bc7-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/25/f0f0519d81e94823ab0408cad8435bc7_h2642000000nero_aac16-1.mp4','2023-08-25 14:13:29');
-INSERT INTO `video` (video_id, title, description, PictureURL, VideoURL, created_at) VALUES ('29708532', 'CCTV-13新闻频道', '核污染风险笼罩全球 日本为何强推排海
-？韩国多个团体抗议日本强推核污染水排海', 'https://p2.img.cctvpic.com/fmspic/2023/08/23/3dd56b03621246acbd778477ab93fe52-1.jpg', 'https://vod.cntv.lxdns.com/flash/mp4video63/TMS/2023/08/23/3dd56b03621246acbd778477ab93fe52_h2642000000nero_aac16.mp4','2023-08-23 21:01:26');
-
 
 -- ----------------------------
--- Table structure for webviews
+-- Table structure for `video_like`
 -- ----------------------------
-DROP TABLE IF EXISTS `webviews`;
-CREATE TABLE `webviews`  (
-  `Views` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`Views`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+DROP TABLE IF EXISTS `video_like`;
+CREATE TABLE `video_like` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_id` varchar(16) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` int(1) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx-video_like-video_id` (`video_id`),
+  KEY `idx-video_like-user_id` (`user_id`),
+  CONSTRAINT `fk-video_like-user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk-video_like-video_id` FOREIGN KEY (`video_id`) REFERENCES `video` (`video_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of webviews
+-- Records of video_like
 -- ----------------------------
-INSERT INTO `webviews` VALUES (0);
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- ----------------------------
+-- Table structure for `video_view`
+-- ----------------------------
+DROP TABLE IF EXISTS `video_view`;
+CREATE TABLE `video_view` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_id` varchar(16) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx-video_view-video_id` (`video_id`),
+  KEY `idx-video_view-user_id` (`user_id`),
+  CONSTRAINT `fk-video_view-user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk-video_view-video_id` FOREIGN KEY (`video_id`) REFERENCES `video` (`video_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of video_view
+-- ----------------------------
+INSERT INTO `video_view` VALUES ('90', 'PAnKGl9G', '2', '1591498574');
+INSERT INTO `video_view` VALUES ('91', 'PAnKGl9G', '2', '1591498617');
+INSERT INTO `video_view` VALUES ('92', 'PAnKGl9G', '2', '1591498634');
+INSERT INTO `video_view` VALUES ('93', 'PAnKGl9G', '2', '1591498719');
+INSERT INTO `video_view` VALUES ('94', 'PAnKGl9G', '2', '1591498738');
+INSERT INTO `video_view` VALUES ('95', 'PAnKGl9G', null, '1591499455');
+INSERT INTO `video_view` VALUES ('96', 'PAnKGl9G', '11', '1591499555');
+INSERT INTO `video_view` VALUES ('97', 'PAnKGl9G', '11', '1591521725');
+INSERT INTO `video_view` VALUES ('98', 'PAnKGl9G', '2', '1591585218');
+INSERT INTO `video_view` VALUES ('99', 'PAnKGl9G', '2', '1591872749');
+INSERT INTO `video_view` VALUES ('100', 'PAnKGl9G', null, '1592017355');

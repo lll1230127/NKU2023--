@@ -44,3 +44,10 @@ composer.phar
 /backend/web/index.php
 /backend/web/index-test.php
 /backend/web/robots.txt
+composer.lock
+composer.json
+common/config/main-local.php
+composer.lock
+composer.json
+common/config/main-local.php
+composer.json
