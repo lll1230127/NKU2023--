@@ -19,7 +19,7 @@ $this->registerJsFile("@web/js/plague-map.js");
 
 $url = Yii::getAlias("@web") . '/img/';
 
-$this->title = '疫情资料站';
+$this->title = '核辐射资料站';
 ?>
 <div class="site-index">
 
