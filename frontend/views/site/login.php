@@ -1,41 +1,94 @@
 <?php
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-/** @var \common\models\LoginForm $model */
 
-use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \common\models\LoginForm */
+
+use yii\helpers\Html;
+use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php echo Html::cssFile('@web/css/style.css'); ?>
+
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+	<style>
+		.site-login {
+			height: 450px;
+			width: 100%;
+			background-position: center;
+			background-size: 50%;
+			text-align: center;
+			position: center;
+		}
+		
+		
+	</style>
+	
+	<p>Login</p>
+	<div class="row">
+		<div class="col-lg-12">
+			<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-    <p>Please fill out the following fields to login:</p>
+			<?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+			<?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+			<?= $form->field($model, 'rememberMe')->checkbox() ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+			<div class="form-group">
+				<?= Html::submitButton('Log in', ['class' => 'btn', 'name' => 'login-button']) ?>
+			</div>
+		</div>
+		<style type="text/css">
+			.row {
+				width: 480px;
+				height: 480px;
+				position: relative;
+				z-index: 999;
+				text-align: center;
+				margin: 6% auto;
+				background: rgba(216, 216, 216, 0.5);
+				padding: 5px;
+				overflow: hidden;
+				border: 10px solid white;
+				box-shadow: 0px 0px 10px 5px #aaa;
+				display: flex;
+			}
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+			.btn {
+				top: 15px;
+				left: 150px;
+				position: relative;
+				width: 125px;
+				height: 50px;
+				background: white;
+				color:#000;
+				border: 5px solid white;
+				box-shadow: 0px 0px 10px 5px #aaa;
+				border-radius: 30px;
+				transition: .5s;
+				display: flex;
+			}
 
-                <div class="my-1 mx-0" style="color:#999;">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                    <br>
-                    Need new verification email? <?= Html::a('Resend', ['site/resend-verification-email']) ?>
-                </div>
+			.btn:hover {
+				background-color: rgb(135, 135, 135);
+				color: white;
+				border: 5px solid white;
+				display: flex;
+			}
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+			.site-login p {
+				font-size: 50px;
+				text-align: center;
+				font-weight: bolder;
+				position: relative;
+			}
+		</style>
+		<?php ActiveForm::end(); ?>
+	</div>
 </div>
+<?php echo Html::cssFile('@web/css/bk.css'); ?>

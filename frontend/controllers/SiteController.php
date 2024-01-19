@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * actioncontact相关，袁嘉蔚
+ */
 namespace frontend\controllers;
 
 use frontend\models\ResendVerificationEmailForm;
@@ -11,10 +13,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\CovNews;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+use common\models\ContactForm;
+use frontend\models\NewsForm;
+use frontend\models\ResearchForm;
 
 /**
  * Site controller
@@ -28,7 +33,7 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::class,
+                'class' => AccessControl::className(),
                 'only' => ['logout', 'signup'],
                 'rules' => [
                     [
@@ -44,7 +49,7 @@ class SiteController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -59,10 +64,10 @@ class SiteController extends Controller
     {
         return [
             'error' => [
-                'class' => \yii\web\ErrorAction::class,
+                'class' => 'yii\web\ErrorAction',
             ],
             'captcha' => [
-                'class' => \yii\captcha\CaptchaAction::class,
+                'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
@@ -75,7 +80,10 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $data=CovNews::getAll(6);
+        return $this->render('index',[
+            'news'=>$data['news'],
+        ]);
     }
 
     /**
@@ -85,6 +93,7 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+		$this->layout="sl";
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -92,13 +101,13 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+        } else {
+            $model->password = '';
+            Yii::$app->user->setReturnUrl(Yii::$app->request->referrer);
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
-
-        $model->password = '';
-
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -120,22 +129,24 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $this->layout = false;
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->get())) {
+            if($model->save()) {
+            
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                return $this->goHome();
             }
-
-            return $this->refresh();
+            else {
+                //print_r($model->getErrors());exit;
+                Yii::$app->session->setFlash('error', 'Sorry, there is an error occured when sending your message.');               
+            
+            }
         }
-
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+            return $this->render('contact', [
+                'model' => $model,
+            ]);
     }
-
     /**
      * Displays about page.
      *
@@ -143,8 +154,78 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+		$this->layout="ab";
         return $this->render('about');
     }
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionAbout1()
+    {
+		$this->layout="ab";
+        return $this->render('about1');
+    }
+    /**
+     * Displays about page.
+     *
+     * @return mixed
+     */
+    public function actionAbout2()
+    {
+		$this->layout="ab";
+        return $this->render('about2');
+    }
+
+
+
+    
+    /**
+     * Displays news page.
+     *
+     * @return mixed
+     */
+    public function actionNews()
+    {
+        return $this->render('news');
+    }
+
+
+
+    
+    /**
+     * Displays research page.
+     *
+     * @return mixed
+     */
+    public function actionCovResearch()
+    {
+        $query = CovResearch::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $CovResearchs = $query->orderBy('id')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('research', [
+            'covresearch' => $CovResearchs,
+            'pagination' => $pagination,
+        ]);
+    }
+    public function actionResearch()
+    {
+        return $this->render('research');
+    }
+
+    
+
+
 
     /**
      * Signs user up.
@@ -153,9 +234,10 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+		$this->layout="sl";
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', 'Thank you for registration. Welcome to our website.');
             return $this->goHome();
         }
 
@@ -171,15 +253,16 @@ class SiteController extends Controller
      */
     public function actionRequestPasswordReset()
     {
+		$this->layout="sl";
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
                 return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
-
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
         }
 
         return $this->render('requestPasswordResetToken', [
@@ -196,6 +279,7 @@ class SiteController extends Controller
      */
     public function actionResetPassword($token)
     {
+		$this->layout="sl";
         try {
             $model = new ResetPasswordForm($token);
         } catch (InvalidArgumentException $e) {
@@ -222,14 +306,17 @@ class SiteController extends Controller
      */
     public function actionVerifyEmail($token)
     {
+		$this->layout="sl";
         try {
             $model = new VerifyEmailForm($token);
         } catch (InvalidArgumentException $e) {
             throw new BadRequestHttpException($e->getMessage());
         }
-        if (($user = $model->verifyEmail()) && Yii::$app->user->login($user)) {
-            Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
-            return $this->goHome();
+        if ($user = $model->verifyEmail()) {
+            if (Yii::$app->user->login($user)) {
+                Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+                return $this->goHome();
+            }
         }
 
         Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
@@ -243,6 +330,7 @@ class SiteController extends Controller
      */
     public function actionResendVerificationEmail()
     {
+		$this->layout="sl";
         $model = new ResendVerificationEmailForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {

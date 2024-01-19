@@ -3,6 +3,9 @@
 /yii_test
 /yii_test.bat
 
+# vscode files
+/.vscode
+
 # phpstorm project files
 .idea
 
@@ -27,9 +30,9 @@ composer.phar
 .DS_Store
 
 # phpunit itself is not needed
-phpunit.phar
+# phpunit.phar
 # local phpunit config
-/phpunit.xml
+# /phpunit.xml
 
 # vagrant runtime
 /.vagrant

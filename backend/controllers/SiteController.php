@@ -1,13 +1,12 @@
 <?php
-
 namespace backend\controllers;
 
-use common\models\LoginForm;
 use Yii;
+use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\web\Response;
+use common\models\LoginForm;
+use common\models\Video;
 
 /**
  * Site controller
@@ -21,10 +20,10 @@ class SiteController extends Controller
     {
         return [
             'access' => [
-                'class' => AccessControl::class,
+                'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','homework'],
                         'allow' => true,
                     ],
                     [
@@ -35,7 +34,7 @@ class SiteController extends Controller
                 ],
             ],
             'verbs' => [
-                'class' => VerbFilter::class,
+                'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
@@ -50,7 +49,7 @@ class SiteController extends Controller
     {
         return [
             'error' => [
-                'class' => \yii\web\ErrorAction::class,
+                'class' => 'yii\web\ErrorAction',
             ],
         ];
     }
@@ -65,10 +64,21 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionHomework()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->actionLogin();
+        }
+        else{
+        return $this->render('homework');
+    }
+    }
+
+
     /**
      * Login action.
      *
-     * @return string|Response
+     * @return string
      */
     public function actionLogin()
     {
@@ -76,24 +86,22 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $this->layout = 'blank';
-
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+        } else {
+            $model->password = '';
+
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
-
-        $model->password = '';
-
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
     /**
      * Logout action.
      *
-     * @return Response
+     * @return string
      */
     public function actionLogout()
     {

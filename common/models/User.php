@@ -1,5 +1,4 @@
 <?php
-
 namespace common\models;
 
 use Yii;
@@ -44,7 +43,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::class,
+            TimestampBehavior::className(),
         ];
     }
 
@@ -209,5 +208,16 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function getSubscribers(){
+        return $this->hasMany(User::class,['id'=>'user_id'])->viaTable('subscriber',['channel_id'=>'id']);
+    }
+
+    public function isSubscribed($userId){
+        return Subscriber::find()->andWhere([
+            'channel_id'=>$this->id,
+            'user_id'=>$userId
+        ])->one();
     }
 }
