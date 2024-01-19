@@ -1,11 +1,11 @@
 <?php
 
-/** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
-/** @var \frontend\models\ResetPasswordForm $model */
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $model \frontend\models\ResetPasswordForm */
 
-use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
+use yii\helpers\Html;
+use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Reset password';
 $this->params['breadcrumbs'][] = $this->title;
