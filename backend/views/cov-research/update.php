@@ -10,7 +10,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\CovResearch */
 
-$this->title = 'Update Cov Research: ' . $model->title;
+$this->title = 'Update Research: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Cov Researches', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

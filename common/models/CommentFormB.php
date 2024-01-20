@@ -1,4 +1,8 @@
 <?php
+/**
+*  Team: lllg,NKU
+*  来自博客的评论
+ */
 
 namespace common\models;
 
@@ -21,7 +25,6 @@ class CommentFormB extends Model{
         $comment->text = $this->comment;
         $comment->user_id = Yii::$app->user->id;
         $comment->article_id = $article_id;
-        //$comment->video_id='null';
         $comment->status = 0;
         $comment->date = date('Y-m-d');
         return $comment->save();

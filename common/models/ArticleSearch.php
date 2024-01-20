@@ -1,6 +1,11 @@
 <?php
 
 namespace common\models;
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  为查询某个文章提供API
+ */
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

@@ -1,6 +1,12 @@
 <?php
 namespace backend\controllers;
 
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  定义了有关文章的Controller
+ */
+
 use Yii;
 use common\models\Article;
 use common\models\ArticleSearch;

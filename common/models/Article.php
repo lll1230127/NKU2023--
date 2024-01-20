@@ -2,6 +2,12 @@
 namespace common\models;
 $formatter = \Yii::$app->formatter;
 
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  实现了后端的博客，为前端提供API
+ */
+
 use common\models\User;
 use Yii;
 use yii\behaviors\BlameableBehavior;

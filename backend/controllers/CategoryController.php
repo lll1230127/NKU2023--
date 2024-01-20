@@ -2,6 +2,12 @@
 
 namespace app\modules\admin\controllers;
 
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  定义了有关目录的Controller
+ */
+
 use Yii;
 use common\models\Category;
 use common\models\CategorySearch;
