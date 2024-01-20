@@ -5,6 +5,11 @@
  */
 /** @var $dataProvider ActiveDataProvider */
 
+/**
+ * Team:lllg,NKU
+ * Coding by: 刘国民 2113946 
+ * 视频页的初始界面
+*/
 
 
 use yii\data\ActiveDataProvider;
@@ -20,7 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
                value="<?php echo Yii::$app->request->get('keyword') ?>">
         <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
     </form>
-    <div>分享你的抗疫故事!</div>
+    <div>
+        跟随新闻报道，让我们一起关注核污染，守护地球家园！
+    </div>
+    
+    
 <?php
 echo \yii\widgets\ListView::widget([
     'dataProvider'=>$dataProvider,
@@ -33,3 +42,5 @@ echo \yii\widgets\ListView::widget([
         'tag'=>false
     ]
 ])?>
+
+<img width=800px src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F0413%2F5f9ad79dj00qri7bo004hc000h9009im.jpg&thumbnail=660x2147483647&quality=80&type=jpg" >
