@@ -2,9 +2,9 @@
 use common\models\Visit;
 use yii\helpers\Url;
 /**
-*  team : LLLG队 
-*  Coding by : 李威远
-*  完成了index页面设计，引入了数据可视化
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  完成了index页面设计，力求整洁美观
  */
 ?>
 
@@ -36,7 +36,6 @@ $this->title = '核辐射资料站';
 
 
 <div class="site-index">
-
     <section class="slider"></section>
     <div class="container">
         <div class="card-carousel">

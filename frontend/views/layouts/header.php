@@ -45,6 +45,7 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => '主页', 'url' => ['/site']],
         ['label' => '科普', 'url' => ['/site/about']],
+        ['label'=>'数据','url'=>['/site/map']],
         ['label'=>'视频','url'=>['/video/index']],
         ['label'=>'博客','url'=>['/blog/blog']],
         ['label' => '新闻', 'url' => ['/news/index']],
