@@ -96,7 +96,7 @@ $this->title = 'Contact';
             <h3 class="section-title-sub text-primary">Who are we?</h3>
             <h2 class="section-title mb-3">为什么要开发这个网址？</h2>
             <p>我们开发这个网页是为了让人们更加了解核辐射和核污染的相关信息；</br>
-              我们收集来自各个媒体和机构对于核辐射、日本排放核污水的报道，将其汇总、分类，形成了About, Research, News三个类目；</br>
+              我们收集来自各个媒体和机构对于核辐射、日本排放核污水的报道，将其汇总、分类，形成了科普, 新闻, 研究三个类目；</br>
               我们制作了相关的博客系统，希望人们能在此分享他们对于核辐射的看法和视频；</br>
               最后，希望人们能通过联系页面将自己的信息及时反馈给我们。</p>
           </div>
@@ -191,7 +191,7 @@ $this->title = 'Contact';
             <img src="../../../frontend/web/img/aboutus/Person_02.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
             <h3>李秉睿</h3>
             <p class="text-muted">组员</p>
-            <p class="lead">数据处理、news、contact、登录界面设计和编写</p>
+            <p class="lead">部分数据处理、新闻、研究、联系、登录界面设计和编写</p>
             <p>千首古风吟子美，一身新月种丁香</p>
             <div class="social mt-4">
               <a href="https://github.com/U0Ghost" target="_blank"><span class="icon-github"></span></a>
@@ -274,7 +274,7 @@ $this->title = 'Contact';
 
 
                 <p class="mb-0 font-weight-bold">邮箱</p>
-                <p class="mb-0"><a href="mailto:2113087@mail.nankai.edu.cn">2113087@mail.nankai.edu.cn</a></p>
+                <p class="mb-0"><a href="mailto:3428862097@qq.com">3428862097@qq.com</a></p>
                 <p> &nbsp; </p>
                 <p> &nbsp; </p>
                 <p> &nbsp; </p>

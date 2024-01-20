@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\CovResearchSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Cov Researches';
+$this->title = 'Researches';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cov-research-index">
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Cov Research', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Research', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
