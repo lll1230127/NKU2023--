@@ -36,21 +36,21 @@ $this->title = 'Contact';
 
 <html lang="en">
 
-<nav id="w0" class="shadow-sm navbar-expand-lg navbar-light bg-light navbar">
+<nav id="w0" class="navbar-expand-lg navbar-light navbar" style="background-color: #616060; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
   <div class="container">
-    <a class="navbar-brand" href="../../web/site/index">COVID-19</a>
+    <a class="navbar-brand" href="../../web/site/index">关注核辐射，关注未来</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#w0-collapse" aria-controls="w0-collapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div id="w0-collapse" class="collapse navbar-collapse">
       <ul id="w1" class="navbar-nav ml-auto nav">
-        <li class="nav-item"><a class="nav-link" href="../../web/site/index">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/site/about">About</a></li>
-        <li class="nav-item"><a class="nav-link " href="../../web/blog/blog">Blog</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/video/index">Video</a></li>
-        <li class="nav-item"><a class="nav-link active" href="../../web/site/contact">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/news/index">News</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/site/research">Research</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/site/signup">Signup</a></li>
-        <li class="nav-item"><a class="nav-link" href="../..web/site/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/site/index">主页</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/site/about">科普</a></li>
+        <li class="nav-item"><a class="nav-link " href="../../web/blog/blog">博客</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/video/index">视频</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../../web/site/contact">关于</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/news/index">新闻</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/site/research">调研</a></li>
+        <li class="nav-item"><a class="nav-link" href="../../web/site/signup">注册</a></li>
+        <li class="nav-item"><a class="nav-link" href="../..web/site/login">登录</a></li>
       </ul>
     </div>
   </div>
