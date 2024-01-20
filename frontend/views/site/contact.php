@@ -190,7 +190,7 @@ $this->title = 'Contact';
             <h3>李秉睿</h3>
             <p class="text-muted">组员</p>
             <p class="lead">数据处理、news、contact、登录界面设计和编写</p>
-            <p>介绍段落</p>
+            <p>千首古风吟子美，一身新月种丁香</p>
             <div class="social mt-4">
               <a href="https://github.com/U0Ghost" target="_blank"><span class="icon-github"></span></a>
               <a href="mailto:2113087@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
