@@ -1,4 +1,9 @@
 <?php
+/**
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * research page view
+ */
 
 use yii\helpers\Html;
 use common\models\CovResearch;
@@ -86,11 +91,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <body>
         <div id="lunbotu">
             <div id="banner">
-                <img class="m" src="../../../frontend/web/news/img/1.jpg" />
-                <img class="m" src="../../../frontend/web/news/img/2.jpeg" />
-                <img class="m" src="../../../frontend/web/news/img/3.png" />
-                <img class="m" src="../../../frontend/web/news/img/4.jpg" />
-                <img class="m" src="../../../frontend/web/news/img/5.jpg" />
+                <img class="m" src="../../../frontend/web/news/img/1.png" height="540px" width="1080px" />
+                <img class="m" src="../../../frontend/web/news/img/2.jpg" height="540px" width="1080px" />
+                <img class="m" src="../../../frontend/web/news/img/3.jpg" height="540px" width="1080px" />
+                <img class="m" src="../../../frontend/web/news/img/4.jpg" height="540px" width="1080px" />
+                <img class="m" src="../../../frontend/web/news/img/5.jpg" height="540px" width="1080px" />
             </div>
             <div id="biao">
                 <ul>
