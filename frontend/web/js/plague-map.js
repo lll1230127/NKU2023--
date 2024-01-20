@@ -6,6 +6,30 @@
 
 // 在文档加载完成后执行的函数
 $(document).ready(function () {
+     // 发送GET请求以获取最新的疫情数据
+     $.ajax({
+        url: "../covid/covid-info", // 服务器端提供疫情数据的API
+        type: "GET",
+        data: { type: 'latest' }, // 请求最新数据
+        async: false, // 同步请求，等待数据返回
+        dataType: 'json',
+        error: function (request) {
+            alert("获取疫情数据失败");
+        },
+        success: function (data) {
+            // 处理返回的数据
+            var recdate = data.features[0].properties.date;
+            latestDate = recdate.substr(0, 4) + '年' +
+                parseInt(recdate.substr(5, 2).toString()) + '月' +
+                parseInt(recdate.substr(8, 2).toString()) + '日';
+
+            // 创建GeoJSON图层并添加到地图上
+            geojson = L.geoJson(data, {
+                style: style, // 定义地图样式
+                onEachFeature: onEachFeature // 定义每个要素的交互行为
+            }).addTo(mymap);
+        }
+    });
     if (chinaMapChart && chinaMapChart.dispose) {
         chinaMapChart.dispose();
     }
@@ -14,7 +38,7 @@ $(document).ready(function () {
             function randomData() {  
                 return Math.round(Math.random()*500);  
            }
-    
+           
            optionChinaMap = {
             title: {
                 text: '中国核污染辐射一览图',
