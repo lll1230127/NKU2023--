@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= Html::jsFile('@web/news/js/jquery-3.2.1.min.js') ?>
 
 
-<div class="research-index">
+<div class="research-index" style="background-color:rgba(255,255,255,1);">
 	<!-- Page heading -->
-	<div class="container">
-		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
-			<div class="f2-s-1 p-r-30 m-tb-6">
+	<div class="container" >
+		<div >
+			<div >
 				<h2 class="f1-l-1 cl2">
 					相关研究
 				</h2>
