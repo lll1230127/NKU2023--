@@ -5,6 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+/* 
+*  team : LLLG队
+*  修改：李威远
+*  修改注释：增加了自己觉得贴切的样式 
+*/
+
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -4524,16 +4530,16 @@ input[type=submit].btn-block {
 }
 
 .navbar-light .navbar-text {
-    color: rgba(0, 0, 0, .5)
+    color: rgba(255, 255, 255, 0.5)
 }
 
 .navbar-light .navbar-text a {
-    color: rgba(0, 0, 0, .9)
+    color: rgba(255, 255, 255, 0.9)
 }
 
 .navbar-light .navbar-text a:focus,
 .navbar-light .navbar-text a:hover {
-    color: rgba(0, 0, 0, .9)
+    color: rgba(255, 255, 255, 0.9)
 }
 
 .navbar-dark .navbar-brand {
@@ -6416,7 +6422,7 @@ button.bg-light:hover {
 }
 
 .bg-dark {
-    background-color: #343a40 !important
+    background-color: #ffcc00 !important
 }
 
 a.bg-dark:focus,
@@ -6428,6 +6434,10 @@ button.bg-dark:hover {
 
 .bg-white {
     background-color: #fff !important
+}
+
+.bg-dark-yellow {
+    background-color: #ffcc00; /* 使用实际的深黄色值 */
 }
 
 .bg-transparent {

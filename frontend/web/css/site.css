@@ -134,6 +134,11 @@ main{
 .content-wrapper{
     flex: 1;
     margin-bottom: 200px;
+    background: url('../pic/1.jpg') center center fixed;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    opacity: 0.9; /* 设置半透明度，可以调整值 */
 }
 
 aside{

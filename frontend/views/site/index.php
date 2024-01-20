@@ -2,7 +2,9 @@
 use common\models\Visit;
 use yii\helpers\Url;
 /**
- * This is the home page of frontend web
+*  team : LLLG队 
+*  Coding by : 李威远
+*  完成了index页面设计，引入了数据可视化
  */
 ?>
 
@@ -21,12 +23,19 @@ $url = Yii::getAlias("@web") . '/img/';
 
 $this->title = '核辐射资料站';
 ?>
-<div class="site-index">
 
-    <!-- 下面第3行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <!-- 下面第2行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <!-- 下面这行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <div id="plague-map"></div>
+<style>
+    .site-index {
+        background-size: cover;
+        position: relative;
+        height: 100vh;
+        opacity: 0.9; /* 设置半透明度，可以调整值 */
+    }
+</style>
+
+
+
+<div class="site-index">
 
     <section class="slider"></section>
     <div class="container">
@@ -36,10 +45,10 @@ $this->title = '核辐射资料站';
 
                 </div>
                 <div class="sliderCaption" style="text-align:center;padding:20px 20px 0px">
-                    <a href="<?= $news[0]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:#4a0d66"><?=$news[0]->title?></a>
+                    <a href="<?= $news[0]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[0]->title?></a>
                     <p style="font-size: 0.8rem;padding-top: 10px;"><?=$news[0]->summary?></p>
                     <p>
-                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">更多新闻</a>
+                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">了解更多</a>
                     </p>
                 </div>
             </div>
@@ -47,10 +56,10 @@ $this->title = '核辐射资料站';
                 <div class="sliderThumb" style=" background:url(<?= $url ?>feizhou.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
                 </div>
                 <div class="sliderCaption">
-                    <a href="<?= $news[2]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:#4a0d66"><?=$news[2]->title?></a>
+                    <a href="<?= $news[2]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[2]->title?></a>
                     <p style="font-size: 0.8rem;padding-top: 10px;"><?=$news[2]->summary?></p>
                     <p>
-                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">更多新闻</a>
+                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">了解更多</a>
                     </p>
                 </div>
             </div>
@@ -59,10 +68,10 @@ $this->title = '核辐射资料站';
 
                 </div>
                 <div class="sliderCaption">
-                    <a href="<?= $news[3]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:#4a0d66"><?=$news[3]->title?></a>
+                    <a href="<?= $news[3]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[3]->title?></a>
                     <p style="font-size: 0.8rem;padding-top: 10px;"><?=$news[3]->summary?></p>
                     <p>
-                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">更多新闻</a>
+                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">了解更多</a>
                     </p>
                 </div>
             </div>
@@ -71,25 +80,31 @@ $this->title = '核辐射资料站';
 
                 </div>
                 <div class="sliderCaption">
-                    <a href="<?= $news[4]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:#4a0d66"><?=$news[4]->title?></a>
+                    <a href="<?= $news[4]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,0,1)"><?=$news[4]->title?></a>
                     <p style="font-size: 0.8rem;padding-top: 10px;"><?=$news[4]->summary?></p>
                     <p>
-                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">更多新闻</a>
+                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">了解更多</a>
                     </p>
                 </div>
             </div>
             <div class="card" id="5">
-                <div class="sliderThumb" style="background: url(<?= $url ?>mei.png) 50% 50% no-repeat;background-size:cover;height:60%;width:100%" <div class="sliderCaption">
+                <div class="sliderThumb" style="background: url(<?= $url ?>mei.png) 50% 50% no-repeat;background-size:cover;height:60%;width:100%" >
                 </div>
                 <div class="sliderCaption">
-                    <a href="<?= $news[5]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:#4a0d66"><?=$news[5]->title?></a>
+                    <a href="<?= $news[5]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[5]->title?></a>
                     <p style="font-size: 0.8rem;padding-top: 10px;"><?=$news[5]->summary?></p>
                     <p>
-                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">更多新闻</a>
+                        <a href="<?=Url::toRoute(['news/index']);?>" class="btn btn-secondary">了解更多</a>
                     </p>
                 </div>
             </div>
         </div>
         <a href="#" class="visuallyhidden card-controller">Carousel controller</a>
     </div>
+
+        <!-- 下面第3行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
+    <!-- 下面第2行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
+    <!-- 下面这行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
+    <!-- <div id="plague-map"></div -->
+
 </div>

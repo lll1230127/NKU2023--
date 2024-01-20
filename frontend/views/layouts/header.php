@@ -4,6 +4,12 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+/* 
+*  team : LLLG队 
+*  Coding by : 李威远
+*  完成了header导航栏的设计
+*/
+
 use yii\helpers\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
@@ -32,26 +38,27 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-             'class' => 'shadow-sm navbar-expand-lg navbar-light bg-light',
+             'class' => 'navbar-expand-lg navbar-light',
+             'style' => 'background-color: #616060; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label'=>'Blog','url'=>['/blog/blog']],
-        ['label'=>'Video','url'=>['/video/index']],
-        ['label'=>'Contact','url'=>['/site/contact']],
-        ['label' => 'News', 'url' => ['/news/index']],
-        ['label' => 'Research', 'url' => ['/site/research']]
+        ['label' => '主页', 'url' => ['/site']],
+        ['label' => '科普', 'url' => ['/site/about']],
+        ['label'=>'视频','url'=>['/video/index']],
+        ['label'=>'博客','url'=>['/blog/blog']],
+        ['label' => '新闻', 'url' => ['/news/index']],
+        ['label' => '调研', 'url' => ['/site/research']],
+        ['label'=>'关于','url'=>['/site/contact']]
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => '注册', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                '登出 (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']
             )
             . Html::endForm()
@@ -59,7 +66,7 @@ AppAsset::register($this);
     }?>
     <?php
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav ml-auto'],
+        'options' => ['class' => 'navbar-nav ml-auto',],
         'items' => $menuItems,
         
     ]);

@@ -275,11 +275,11 @@ p {
 
 
 .btn-secondary {
-    -webkit-box-shadow: 0 7px #256D65;
-    box-shadow: 0 7px #256D65;
-}
-
-.btn {
+    -webkit-box-shadow: 0 7px #878787;
+    box-shadow: 0 7px #878787;
+  }
+  
+  .btn {
     text-decoration: none;
     border: none;
     /* -webkit-box-shadow: 0 7px #808285; */
@@ -290,13 +290,13 @@ p {
     -o-transition: none;
     transition: none;
     -webkit-font-smoothing: antialiased;
-}
-
-.btn-secondary {
+  }
+  
+  .btn-secondary {
     color: #fff;
-    background-color: #359A8E;
-    border-color: #256D65;
-}
+    background-color: #878787;
+    border-color: #878787;
+  }
 
 .btn {
     display: inline-block;
