@@ -28,21 +28,20 @@ class ImageUpload extends Model
       }
       public function uploadFile(UploadedFile $file, $currentImage) {
         $this->image=$file;  
-        if($this->validate()){
-         {
-            if($this->fileExists($currentImage)){
+        if($this->validate())
+        {
+            if($this->fileExists($currentImage))
+            {
                 unlink($this->getFolder() . $currentImage);
             }
+        }
 
-            $filename= $this->generateFilename();
+        $filename= $this->generateFilename();
             
             
             
-            $this->image->saveAs('@frontend/web/uploads/' . $filename);
-            
-            }}
-
-        return $filename;
+        $this->image->saveAs('@frontend/web/uploads/' . $filename);
+        return $filename;  
       }
 
       public function fileExists($currentImage)
