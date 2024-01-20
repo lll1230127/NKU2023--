@@ -270,11 +270,9 @@ $this->title = 'Contact';
                 <p class="mb-0 font-weight-bold">地址</p>
                 <p class="mb-4">中国天津市津南区同砚路38号南开大学津南校区</p>
 
-                <p class="mb-0 font-weight-bold">微信</p>
-                <p class="mb-4">Niepeng_is_handsome</a></p>
 
                 <p class="mb-0 font-weight-bold">邮箱</p>
-                <p class="mb-0"><a href="mailto:1020546@hust.edu.cn">Niepeng@is.very.handsome.cn</a></p>
+                <p class="mb-0"><a href="mailto:2113087@mail.nankai.edu.cn">2113087@mail.nankai.edu.cn</a></p>
                 <p> &nbsp; </p>
                 <p> &nbsp; </p>
                 <p> &nbsp; </p>
