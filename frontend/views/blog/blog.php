@@ -46,45 +46,45 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="owl-carousel home-banner-owl">
                         <div class="banner-img">
-                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/b4.jpg')?>" alt="" />
+                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/1.png')?>" alt="" />
                             <div class="text-wrapper">
                                 <a href="#" class="d-flex">
                                     <h1>
-                                        驰援 <br />
+                                        日本强行将125万吨核废水排入太平洋 <br />
                                         
                                     </h1>
                                 </a>
                             </div>
                         </div>
                         <div class="banner-img">
-                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/b5.jpg')?>" alt="" />
+                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/2.png')?>" alt="" />
                             <div class="text-wrapper">
                                 <a href="#" class="d-flex">
                                     <h2 style="color: #fff;">
-                                        如何靠对外甩锅并且挑动种族矛盾<br />
-                                        来掩盖自己的无能
+                                        一场波及75亿人的灾难正在降临<br />
+                                        ....
                                     </h2>
                                 </a>
                             </div>
                         </div>
                         <div class="banner-img">
-                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/b6.jpg')?>" alt="" />
+                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/3.png')?>" alt="" />
                             <div class="text-wrapper">
                                 <a href="#" class="d-flex">
                                     <h1>
-                                        哀思中，凝聚慨然前行的力量 <br />
-                                        
+                                        日本核污水排海 <br />
+                                        “地球之殇”引发思考
                                     </h1>
                                 </a>
                             </div>
                         </div>
                         <div class="banner-img">
-                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/b7.jpg')?>" alt="" />
+                            <img class="img-fluid" src="<?=Url::to('@web/img/banner/4.png')?>" alt="" />
                             <div class="text-wrapper">
                                 <a href="#" class="d-flex">
                                     <h3 style="color:#fff;">
-                                        1月30日，武汉同济医院外，挂在花枝上的吊瓶。 <br />
-                                        因发热门诊空间有限，许多患者在门外的花园里打点滴
+                                        日本试图隐瞒核污染水危害 <br />
+                                        央媒：别再做对历史欠债的缺德事
                                     </h3>
                                 </a>
                             </div>
