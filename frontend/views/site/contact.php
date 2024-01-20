@@ -176,11 +176,11 @@ $this->title = 'Contact';
 
             <h3>李威远</h3>
             <p class="text-muted">组长</p>
-            <p class="lead">工作</p>
-            <p>介绍段落</p>
+            <p class="lead">领队分工、页面设计、前后端对接、数据可视化实现</p >
+            <p>我是绫地宁宁的狗</p >
             <div class="social mt-4">
               <a href="https://github.com/lll1230127" target="_blank"><span class="icon-github"></span></a>
-              <a href="mailto:2112338@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="mailto:3428862097@qq.com" target="_blank"><span class="icon-envelope-o"></span></a>
               <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
             </div>
 
@@ -189,7 +189,7 @@ $this->title = 'Contact';
             <img src="../../../frontend/web/img/aboutus/Person_02.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
             <h3>李秉睿</h3>
             <p class="text-muted">组员</p>
-            <p class="lead">工作</p>
+            <p class="lead">数据处理、news、contact、登录界面设计和编写</p>
             <p>介绍段落</p>
             <div class="social mt-4">
               <a href="https://github.com/U0Ghost" target="_blank"><span class="icon-github"></span></a>
