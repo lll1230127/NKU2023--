@@ -720,7 +720,7 @@ CREATE TABLE `pcounter_save` (
 INSERT INTO `pcounter_save` VALUES ('counter', '12');
 INSERT INTO `pcounter_save` VALUES ('day_time', '2459014');
 INSERT INTO `pcounter_save` VALUES ('max_count', '5');
-INSERT INTO `pcounter_save` VALUES ('max_time', '1591437600');
+INSERT INTO `pcounter_save` VALUES ('max_time', '1705748410');
 INSERT INTO `pcounter_save` VALUES ('yesterday', '1');
 
 -- ----------------------------
