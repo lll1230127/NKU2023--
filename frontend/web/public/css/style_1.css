@@ -1,6 +1,6 @@
 a,
 a:hover {
-    color: #F08080
+    color: #ffdb25
 }
 
 .fh5co_header_bg {
@@ -13,7 +13,7 @@ a:hover {
 }
 
 .treding_btn {
-    background: #F08080;
+    background: #ffdb25;
     color: #fff;
     margin: 0 10px;
     display: inline-block;
@@ -22,7 +22,7 @@ a:hover {
 
 .treding_btn:hover,
 .treding_btn:focus {
-    background: #F08080;
+    background: #ffdb25;
     color: #fff;
     margin: 0 10px;
     display: inline-block;
@@ -40,7 +40,7 @@ a:hover {
     clip-path: polygon(0 1%, 100% 0, 0 100%, 0% 100%);
     height: 20px;
     width: 20px;
-    background: #F08080;
+    background: #ffdb25;
     position: absolute;
     left: 9px
 }
@@ -74,7 +74,7 @@ a:hover {
 .fh5co_display_table:focus {
     display: table;
     color: #777;
-    border: 1px solid #F08080 !important;
+    border: 1px solid #ffdb25 !important;
     cursor: pointer;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -114,7 +114,7 @@ a:hover {
     -webkit-transition: all .5s ease;
     -ms-transition: all .5s ease;
     transition: all .5s ease;
-    background: #F08080!important;
+    background: #ffdb25!important;
     -webkit-clip-path: polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0);
     -moz-clip-path: polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0);
     -ms-clip-path: polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0);
@@ -142,7 +142,7 @@ a:hover {
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    background: #F08080 !important;
+    background: #ffdb25 !important;
     color: #fff !important;
     padding-top: 12px !important;
     padding-bottom: 15px !important;
@@ -414,7 +414,7 @@ a:hover {
 }
 
 .c_m {
-    color: #F08080
+    color: #ffdb25
 }
 
 .fh5co_small_post_heading {
@@ -507,7 +507,7 @@ a:hover {
     content: '';
     height: 120%;
     width: 120%;
-    background-color: #F08080;
+    background-color: #ffdb25;
     z-index: -1;
     top: -10%;
     right: -10%;
@@ -568,7 +568,7 @@ a:hover {
 
 .fh5co_tagg:hover,
 .fh5co_tagg:focus {
-    background: #F08080;
+    background: #ffdb25;
     color: #fff;
     text-decoration: none
 }
@@ -669,7 +669,7 @@ a:hover {
 .fh5co_display_table_footer:focus {
     display: table;
     color: #777;
-    border: 1px solid #F08080 !important;
+    border: 1px solid #ffdb25 !important;
     cursor: pointer;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -695,7 +695,7 @@ a:hover {
 
 .footer_menu li>a:hover,
 .footer_menu li>a:focus {
-    color: #F08080 !important;
+    color: #ffdb25!important;
     padding: 8px 0 !important;
     display: -webkit-box;
     margin-left: 5px
@@ -745,11 +745,11 @@ a:hover {
 }
 
 .fh5co_footer_text_box:focus {
-    border-color: #F08080
+    border-color: #ffdb25
 }
 
 .fh5co_footer_subcribe {
-    background: #F08080!important;
+    background: #ffdb25!important;
     border-bottom: 2px solid #fff !important;
     border-top: 0px solid #fff !important;
     border-top: 0px solid #fff !important;
@@ -775,7 +775,7 @@ a:hover {
 
 #fh5co_contact_form input:focus,
 #fh5co_contact_form textarea:focus {
-    border-color: #F08080
+    border-color: #ffdb25
 }
 
 .contact_us_bg_img {
@@ -800,7 +800,7 @@ a:hover {
 .fh5co_con:focus {
     text-decoration: none;
     font-size: 24px;
-    color: #F08080;
+    color: #ffdb25;
     font-weight: 800
 }
 
@@ -822,7 +822,7 @@ a:hover {
     border: 1px solid #fff !important;
     color: #fff !important;
     font-size: 24px !important;
-    background: #F08080;
+    background: #ffdb25;
     padding: 10px 15px;
     margin: 0 20px
 }
@@ -862,9 +862,9 @@ a:hover {
 }
 
 .fh5co_contact_us_no_icon_difh5co_hover:hover>.fh5co_contact_us_no_icon_difh5co_hover_1>.fh5co_contact_us_no_icon_div {
-    color: #F08080 !important;
+    color: #ffdb25 !important;
     cursor: pointer;
-    border: 2px solid #F08080 !important
+    border: 2px solid #ffdb25 !important
 }
 
 .fh5co_contact_us_no_icon_difh5co_hover_2 {
@@ -964,7 +964,7 @@ a:hover {
 }
 
 .contact_btn {
-    background: #F08080 !important;
+    background: #ffdb25 !important;
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     -ms-border-radius: 0 !important;
@@ -976,12 +976,12 @@ a:hover {
 .contact_btn:hover,
 .contact_btn:focus {
     background: none !important;
-    border: 1px solid #F08080 !important;
+    border: 1px solid #ffdb25 !important;
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     -ms-border-radius: 0 !important;
     border-radius: 0 !important;
-    color: #F08080 !important;
+    color: #ffdb25 !important;
     padding: 10px 50px !important
 }
 

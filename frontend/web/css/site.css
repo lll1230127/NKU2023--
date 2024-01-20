@@ -136,15 +136,18 @@ main{
     margin-bottom: 200px;
 }
 
-.content-wrapper-index{
+.content-wrapper-index {
     flex: 1;
     margin-bottom: 200px;
     background: url('../pic/1.jpg') center center fixed;
     background-size: cover;
+    background-attachment: fixed; /* 保持背景固定 */
     position: relative;
     height: 100vh;
     opacity: 0.9; /* 设置半透明度，可以调整值 */
 }
+
+
 
 aside{
     min-width: 200px;
