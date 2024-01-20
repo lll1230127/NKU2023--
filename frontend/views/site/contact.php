@@ -93,11 +93,10 @@ $this->title = 'Contact';
           <div class="col-lg-5 ml-auto">
             <h3 class="section-title-sub text-primary">Who are we?</h3>
             <h2 class="section-title mb-3">为什么要开发这个网址？</h2>
-            <p>我们开发这个网页是为了让人们更加了解新型冠状病毒的相关信息；</br>
-              我们通过收集全球各地的感染患者数量，将其制作为疫情地图直观的反映出来；</br>
-              我们收集来自各个媒体和机构对于这种病毒的报导，将其汇总、分类，形成了About, Research, News三个类目；</br>
-              我们更制作了相关的博客系统，希望人们能在此分享他们的抗疫感想和Vlog视频；</br>
-              最后，希望人们能通过联系页面讲自己的信息及时反馈给我们。</p>
+            <p>我们开发这个网页是为了让人们更加了解核辐射和核污染的相关信息；</br>
+              我们收集来自各个媒体和机构对于核辐射、日本排放核污水的报道，将其汇总、分类，形成了About, Research, News三个类目；</br>
+              我们制作了相关的博客系统，希望人们能在此分享他们对于核辐射的看法和视频；</br>
+              最后，希望人们能通过联系页面将自己的信息及时反馈给我们。</p>
           </div>
         </div>
       </div>
@@ -111,9 +110,9 @@ $this->title = 'Contact';
           <div class="col-md-6 align-self-center">
             <h3 class="section-title-sub text-primary">Key Feautures</h3>
             <h2 class="section-title mb-4">网站特点</h2>
-            <p class="lead">这是一个疫情资料站。</p>
-            <p>我们提供了各种关于COVID-19的信息，您可以在这里获取国内外关于疫情的最新研究和新闻资料，您也可以分享您的抗疫日记，将疫情期间拍摄的影像上传于本站，与更多人分享自己的生活。</p>
-            <p>同时，如果您对本网站的内容有任何疑问，或者有与新冠病毒有关的一切信息和内容，欢迎通过本页最下方的表格联系我们，您也可以获取我们的联络方式，以便在第一时间找到我们，真诚感谢您的支持！</p>
+            <p class="lead">这是一个核污染宣传站。</p>
+            <p>我们提供了各种关于核辐射的信息，您可以在这里获取国内外关于核辐射、核泄漏的新闻资料，您也可以分享您对于核污染的看法，将制作的与核有关的影像上传于本站。</p>
+            <p>同时，如果您对本网站的内容有任何疑问，或者有与核污染有关的一切信息和内容，欢迎通过本页最下方的表格联系我们，您也可以获取我们的联络方式，以便在第一时间找到我们，真诚感谢您的支持！</p>
             <p class="mt-4"><a href="#contactformanchor" class="spepcial_link">跳转到联系表格</a></p>
           </div>
           <div class="col-md-5 ml-auto img-overlap">
@@ -162,6 +161,77 @@ $this->title = 'Contact';
       </div>
     </section>
     
+    <section class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade">
+            <h3 class="section-title-sub text-primary">Our Team</h3>
+            <h2 class="section-title mb-3">小组信息介绍</h2>
+          </div>
+        </div>
+
+        <div class="row align-items-center block__69944">
+          <div class="col-lg-6 mb-5">
+            <img src="../../../frontend/web/img/aboutus/Person_01.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
+
+            <h3>李威远</h3>
+            <p class="text-muted">组长</p>
+            <p class="lead">工作</p>
+            <p>介绍段落</p>
+            <div class="social mt-4">
+              <a href="https://github.com/lll1230127" target="_blank"><span class="icon-github"></span></a>
+              <a href="mailto:2112338@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
+            </div>
+
+          </div>
+          <div class="col-lg-6 mb-5">
+            <img src="../../../frontend/web/img/aboutus/Person_02.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
+            <h3>李秉睿</h3>
+            <p class="text-muted">组员</p>
+            <p class="lead">工作</p>
+            <p>介绍段落</p>
+            <div class="social mt-4">
+              <a href="https://github.com/U0Ghost" target="_blank"><span class="icon-github"></span></a>
+              <a href="mailto:2113087@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 mb-5">
+            <img src="../../../frontend/web/img/aboutus/Person_03.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
+
+            <h3>郭昱杰</h3>
+            <p class="text-muted">组员</p>
+            <p class="lead">工作</p>
+            <p>介绍段落</p>
+            <div class="social mt-4">
+              <a href="https://github.com/JieJie-OvO" target="_blank"><span class="icon-github"></span></a>
+              <a href="mailto:2111066@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
+            </div>
+
+          </div>
+          <div class="col-lg-6 mb-5">
+            <img src="../../../frontend/web/img/aboutus/Person_04.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
+            <h3>刘国民</h3>
+            <p class="text-muted">组员</p>
+            <p class="lead">工作</p>
+            <p>介绍段落</p>
+            <div class="social mt-4">
+              <a href="https://github.com/NKU-liu1114" target="_blank"><span class="icon-github"></span></a>
+              <a href="mailto:2113946@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+
     <div class="container">
       <div class="row mb-5">
         <div class="col-12 text-center" data-aos="fade">
@@ -194,6 +264,27 @@ $this->title = 'Contact';
 
 
               </form>
+            </div>
+            <div class="col-lg-5 ml-auto">
+              <div class="p-4 mb-3 bg-white">
+                <p class="mb-0 font-weight-bold">地址</p>
+                <p class="mb-4">中国天津市津南区同砚路38号南开大学津南校区</p>
+
+                <p class="mb-0 font-weight-bold">微信</p>
+                <p class="mb-4">Niepeng_is_handsome</a></p>
+
+                <p class="mb-0 font-weight-bold">邮箱</p>
+                <p class="mb-0"><a href="mailto:1020546@hust.edu.cn">Niepeng@is.very.handsome.cn</a></p>
+                <p> &nbsp; </p>
+                <p> &nbsp; </p>
+                <p> &nbsp; </p>
+                <p> &nbsp; </p>
+                <p> &nbsp; </p>
+                <p> &nbsp; </p>
+                <img src="../../../frontend/web/img/aboutus/jinnan.jpg" alt="Image" class="img-fluid mb-4 rounded"> </a>
+
+
+              </div>
             </div>
           </div>
         </div>
