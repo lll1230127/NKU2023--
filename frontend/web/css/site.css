@@ -134,6 +134,11 @@ main{
 .content-wrapper{
     flex: 1;
     margin-bottom: 200px;
+}
+
+.content-wrapper-index{
+    flex: 1;
+    margin-bottom: 200px;
     background: url('../pic/1.jpg') center center fixed;
     background-size: cover;
     position: relative;
