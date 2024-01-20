@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
-    'name'=>'COVID-19',
+    'name'=>'核辐射资料站后台系统',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'components' => [

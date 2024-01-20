@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = '疫情资料站后台';
+$this->title = '核辐射资料站后台';
 ?>
 <!DOCTYPE html>
 <html>
