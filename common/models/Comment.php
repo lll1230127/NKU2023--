@@ -5,6 +5,12 @@ namespace common\models;
 use Yii;
 
 /**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  实现了评论，为前端提供API
+ */
+
+/**
  * This is the model class for table "comment".
  *
  * @property int $id

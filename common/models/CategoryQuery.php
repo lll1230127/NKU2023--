@@ -1,5 +1,9 @@
 <?php
 
+/**
+*  gii生成
+*/
+
 namespace common\models;
 
 /**

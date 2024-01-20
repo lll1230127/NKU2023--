@@ -1,4 +1,8 @@
 <?php
+/**
+*  Team: lllg,NKU
+*  来自video的评论
+ */
 
 namespace common\models;
 
@@ -21,10 +25,8 @@ class CommentFormV extends Model{
         $comment->text = $this->comment;
         $comment->user_id = Yii::$app->user->id;
         $comment->video_id = $video_id;
-       // $comment->article_id= 0;
         $comment->status = 0;
         $comment->date = date('Y-m-d');
         return $comment->save();
-
     }
 }

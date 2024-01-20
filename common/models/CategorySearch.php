@@ -1,5 +1,11 @@
 <?php
 
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  为目录查找提供API
+ */
+
 namespace common\models;
 
 use yii\base\Model;
@@ -51,8 +57,6 @@ class CategorySearch extends Category
         $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 

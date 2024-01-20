@@ -1,11 +1,13 @@
 <?php
 namespace common\models;
 
-
 /**
- *
- * @see Article
- */
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  与数据库连接，进行查询
+* @see Article
+*/
+
 class ArticleQuery extends \yii\db\ActiveQuery
 {
     /**

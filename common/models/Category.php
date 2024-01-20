@@ -4,13 +4,15 @@ namespace common\models;
 use yii\data\Pagination;
 
 use Yii;
-
 /**
- * This is the model class for table "category".
- *
- * @property int $id
- * @property string|null $title
- */
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  实现目录，提供某些API接口
+*
+* @property int $id
+* @property string|null $title
+*/
+
 class Category extends \yii\db\ActiveRecord
 {
     /**
