@@ -1,5 +1,7 @@
 /**
- * coding by huangjz
+ * team ：LLLG队
+ * coding by 李威远
+ * 首页的新闻的动态处理
  */
 
 

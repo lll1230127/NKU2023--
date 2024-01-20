@@ -1,7 +1,9 @@
 /**
- * Team:布利啾啾迪布利多,NKU
- * coding by LiYanxin 1813265,20200504
+ * team ：LLLG队
+ * coding by 李威远
+ * 详情页的动态处理，做一些有趣的东西
  */
+
 
 
 (function emojiCursor() {

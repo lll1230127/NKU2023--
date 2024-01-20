@@ -3,6 +3,11 @@
 
 
 /* @var $this yii\web\View */
+/**
+*  team : LLLG队 
+*  Coding by : 李威远
+*  完成了科普页面设计
+ */
 
 use yii\helpers\Html;
 
@@ -97,7 +102,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		//			
 		preBtn.onclick = function() {
 			n--;
-			if (n == 0) {
+			if (n == -1) {
 				n = 6;
 			}
 			pic.src = "../../../frontend/web/img/" + n + ".jpg"
@@ -110,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		function picLunH() {
 			n++;
 			if (n == 7) {
-				n = 1;
+				n = 0;
 			}
 			pic.src = "../../../frontend/web/img/" + n + ".jpg"
 
