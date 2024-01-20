@@ -6,40 +6,37 @@
 
 // 在文档加载完成后执行的函数
 $(document).ready(function () {
-     // 发送GET请求以获取最新的疫情数据
-     $.ajax({
-        url: "../covid/covid-info", // 服务器端提供疫情数据的API
-        type: "GET",
-        data: { type: 'latest' }, // 请求最新数据
-        async: false, // 同步请求，等待数据返回
-        dataType: 'json',
-        error: function (request) {
-            alert("获取疫情数据失败");
-        },
-        success: function (data) {
-            // 处理返回的数据
-            var recdate = data.features[0].properties.date;
-            latestDate = recdate.substr(0, 4) + '年' +
-                parseInt(recdate.substr(5, 2).toString()) + '月' +
-                parseInt(recdate.substr(8, 2).toString()) + '日';
 
-            // 创建GeoJSON图层并添加到地图上
-            geojson = L.geoJson(data, {
-                style: style, // 定义地图样式
-                onEachFeature: onEachFeature // 定义每个要素的交互行为
-            }).addTo(mymap);
-        }
-    });
     if (chinaMapChart && chinaMapChart.dispose) {
         chinaMapChart.dispose();
     }
     var chinaMapChart = echarts.init(document.getElementById('plague-map'), 'macarons');
-            //中国地图
-            function randomData() {  
-                return Math.round(Math.random()*500);  
-           }
-           
-           optionChinaMap = {
+    // 通过 AJAX 请求获取 JSON 文件中的数据
+    $.ajax({
+        url: '../chinaMap/avg_new.json', // 替换为实际的 JSON 文件路径
+        type: 'GET',
+        dataType: 'json',
+        success: function (jsonData) {
+            renderMap(chinaMapChart, jsonData);
+        },
+        error: function (request) {
+            alert('获取 JSON 数据失败');
+        }
+    });
+    function renderMap(chinaMapChart, jsonData) {
+        // 处理加载的 JSON 数据
+        var convertedData = [];
+        for (var key in jsonData) {
+            if (jsonData.hasOwnProperty(key)) {
+                var item = jsonData[key];
+                convertedData.push({
+                    name: item.name,
+                    value: parseFloat(item.avg_value) // 转换为浮点数
+                });
+            }
+        }
+
+        optionChinaMap = {
             title: {
                 text: '中国核污染辐射一览图',
                 subtext: 'Data from https://data.rmtc.org.cn/',
@@ -117,27 +114,12 @@ $(document).ready(function () {
                            }
                        },
                        top:"100",//组件距离容器的距离
-                       data:[
-                           {name: '北京',value: '100' },{name: '天津',value: randomData() },  
-                           {name: '上海',value: randomData() },{name: '重庆',value: randomData() },  
-                           {name: '河北',value: randomData() },{name: '河南',value: randomData() },  
-                           {name: '云南',value: randomData() },{name: '辽宁',value: randomData() },  
-                           {name: '黑龙江',value: randomData() },{name: '湖南',value: randomData() },  
-                           {name: '安徽',value: randomData() },{name: '山东',value: randomData() },  
-                           {name: '新疆',value: randomData() },{name: '江苏',value: randomData() },  
-                           {name: '浙江',value: randomData() },{name: '江西',value: randomData() },  
-                           {name: '湖北',value: randomData() },{name: '广西',value: randomData() },  
-                           {name: '甘肃',value: randomData() },{name: '山西',value: randomData() },  
-                           {name: '内蒙古',value: randomData() },{name: '陕西',value: randomData() },  
-                           {name: '吉林',value: randomData() },{name: '福建',value: randomData() },  
-                           {name: '贵州',value: randomData() },{name: '广东',value: randomData() },  
-                           {name: '青海',value: randomData() },{name: '西藏',value: randomData() },  
-                           {name: '四川',value: randomData() },{name: '宁夏',value: randomData() },  
-                           {name: '海南',value: randomData() },{name: '台湾',value: randomData() },  
-                           {name: '香港',value: randomData() },{name: '澳门',value: randomData() }  
-                       ]
+                       data: convertedData
                    }
                ]
            };
         chinaMapChart.setOption(optionChinaMap, true);
-});
+    }
+}
+);
+

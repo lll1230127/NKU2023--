@@ -1,0 +1,173 @@
+{
+  "RECORDS1": 
+    {
+      "name": "上海",
+      "avg_value": "65.8794"
+    },
+  "RECORDS2": 
+    {
+      "name": "云南",
+      "avg_value": "85.927"
+    },
+    "RECORDS3": 
+    {
+      "name": "内蒙古",
+      "avg_value": "106.0216"
+    },
+    "RECORDS4": 
+    {
+      "name": "北京",
+      "avg_value": "91.1439"
+    },
+    "RECORDS5": 
+    {
+      "name": "台湾",
+      "avg_value": "0"
+    },
+    "RECORDS6": 
+    {
+      "name": "吉林",
+      "avg_value": "71.3404"
+    },
+    "RECORDS7": 
+    {
+      "name": "四川",
+      "avg_value": "74.0073"
+    },
+    "RECORDS8": 
+    {
+      "name": "天津",
+      "avg_value": "70.1915"
+    },
+    "RECORDS9": 
+    {
+      "name": "宁夏",
+      "avg_value": "86.0217"
+    },
+    "RECORDS10": 
+    {
+      "name": "安徽",
+      "avg_value": "76.2687"
+    },
+    "RECORDS11": 
+    {
+      "name": "山东",
+      "avg_value": "67.2746"
+    },
+    "RECORDS12": 
+    {
+      "name": "山西",
+      "avg_value": "87.8273"
+    },
+    "RECORDS13": 
+    {
+      "name": "广东",
+      "avg_value": "98.5401"
+    },
+    "RECORDS14": 
+    {
+      "name": "广西",
+      "avg_value": "75.3507"
+    },
+    "RECORDS15": 
+    {
+      "name": "新疆",
+      "avg_value": "73.4015"
+    },
+    "RECORDS16": 
+    {
+      "name": "江苏",
+      "avg_value": "58.5887"
+    },
+    "RECORDS17": 
+    {
+      "name": "江西",
+      "avg_value": "71.9706"
+    },
+    "RECORDS18": 
+    {
+      "name": "河北",
+      "avg_value": "62.4071"
+    },
+    "RECORDS19": 
+    {
+      "name": "河南",
+      "avg_value": "74.9149"
+    },
+    "RECORDS20": 
+    {
+      "name": "浙江",
+      "avg_value": "86.507"
+    },
+    "RECORDS21": 
+    {
+      "name": "海南",
+      "avg_value": "62.0949"
+    },
+    "RECORDS22": 
+    {
+      "name": "湖北",
+      "avg_value": "79.5588"
+    },
+    "RECORDS23": 
+    {
+      "name": "湖南",
+      "avg_value": "67.0078"
+    },
+    "RECORDS24": 
+    {
+      "name": "澳门",
+      "avg_value": "0"
+    },
+    "RECORDS25": 
+    {
+      "name": "甘肃",
+      "avg_value": "96.8991"
+    },
+    "RECORDS26": 
+    {
+      "name": "福建",
+      "avg_value": "109.2465"
+    },
+    "RECORDS27": 
+    {
+      "name": "西藏",
+      "avg_value": "192.4958"
+    },
+    "RECORDS28": 
+    {
+      "name": "贵州",
+      "avg_value": "77.2273"
+    },
+    "RECORDS29": 
+    {
+      "name": "辽宁",
+      "avg_value": "67.831"
+    },
+    "RECORDS30": 
+    {
+      "name": "重庆",
+      "avg_value": "78.1756"
+    },
+    "RECORDS31": 
+    {
+      "name": "陕西",
+      "avg_value": "75.5147"
+    },
+    "RECORDS32": 
+    {
+      "name": "青海",
+      "avg_value": "120.6094"
+    },
+    "RECORDS33": 
+    {
+      "name": "香港",
+      "avg_value": "0"
+    },
+    "RECORDS34": 
+    {
+      "name": "黑龙江",
+      "avg_value": "70.1714"
+    }
+  
+}
