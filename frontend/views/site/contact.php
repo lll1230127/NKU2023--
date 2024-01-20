@@ -46,9 +46,9 @@ $this->title = 'Contact';
         <li class="nav-item"><a class="nav-link" href="../../web/site/about">科普</a></li>
         <li class="nav-item"><a class="nav-link " href="../../web/blog/blog">博客</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/video/index">视频</a></li>
-        <li class="nav-item"><a class="nav-link active" href="../../web/site/contact">关于</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/news/index">新闻</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/site/research">调研</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../../web/site/contact">关于</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/site/signup">注册</a></li>
         <li class="nav-item"><a class="nav-link" href="../..web/site/login">登录</a></li>
       </ul>
