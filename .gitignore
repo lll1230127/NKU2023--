@@ -51,3 +51,7 @@ composer.lock
 composer.json
 common/config/main-local.php
 composer.json
+/vendor
+
+vendor/yiisoft/yii2/db/mysql/Schema.php
+vendor/yiisoft/yii2/db/mysql/Schema.php
