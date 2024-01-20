@@ -41,7 +41,7 @@ $this->title = '核辐射资料站';
     <div class="container">
         <div class="card-carousel">
             <div class="card" id="1">
-                <div class="sliderThumb" style=" background:url(<?= $url ?>kewadi.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
+                <div class="sliderThumb" style=" background:url(<?= $url ?>pai.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
 
                 </div>
                 <div class="sliderCaption" style="text-align:center;padding:20px 20px 0px">
@@ -53,7 +53,7 @@ $this->title = '核辐射资料站';
                 </div>
             </div>
             <div class="card" id="2">
-                <div class="sliderThumb" style=" background:url(<?= $url ?>feizhou.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
+                <div class="sliderThumb" style=" background:url(<?= $url ?>gongren.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
                 </div>
                 <div class="sliderCaption">
                     <a href="<?= $news[2]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[2]->title?></a>
@@ -64,7 +64,7 @@ $this->title = '核辐射资料站';
                 </div>
             </div>
             <div class="card" id="3">
-                <div class="sliderThumb" style=" background:url(<?= $url ?>meiguo.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
+                <div class="sliderThumb" style=" background:url(<?= $url ?>wang.jpg) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
 
                 </div>
                 <div class="sliderCaption">
@@ -76,7 +76,7 @@ $this->title = '核辐射资料站';
                 </div>
             </div>
             <div class="card" id="4">
-                <div class="sliderThumb" style=" background:url(<?= $url ?>shiwei.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
+                <div class="sliderThumb" style=" background:url(<?= $url ?>4.jpg) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
 
                 </div>
                 <div class="sliderCaption">
@@ -88,7 +88,7 @@ $this->title = '核辐射资料站';
                 </div>
             </div>
             <div class="card" id="5">
-                <div class="sliderThumb" style="background: url(<?= $url ?>mei.png) 50% 50% no-repeat;background-size:cover;height:60%;width:100%" >
+                <div class="sliderThumb" style="background: url(<?= $url ?>jiandu.jpg) 50% 50% no-repeat;background-size:cover;height:60%;width:100%" >
                 </div>
                 <div class="sliderCaption">
                     <a href="<?= $news[5]->sourceUrl ?>" style="font-size: 22px;font-weight:600;color:rgba(0,0,1)"><?=$news[5]->title?></a>
