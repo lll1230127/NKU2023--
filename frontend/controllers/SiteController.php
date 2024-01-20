@@ -191,7 +191,18 @@ class SiteController extends Controller
         return $this->render('news');
     }
 
-
+    /**
+     * Displays mappage.
+     *
+     * @return mixed
+     */
+    public function actionMap()
+    {
+        $data=CovNews::getAll(6);
+        return $this->render('map',[
+            'news'=>$data['news'],
+        ]);
+    }
 
     
     /**
