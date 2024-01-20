@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * news page view
+ */
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
 use yii\helpers\Html;

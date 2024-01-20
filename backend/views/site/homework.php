@@ -49,7 +49,7 @@ $this->title = 'Homework';
                     <div class="menu-content  col-lg-7">
                         <div class="title text-center">
                             <h1 class="mb-10">团队作业模块</h1>
-                            <p>The team homework download for team bulijojodibulido</p>
+                            
                         </div>
                     </div>
                 </div>            

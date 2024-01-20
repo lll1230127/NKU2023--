@@ -1,4 +1,9 @@
 <?php
+/**
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * research page view
+ */
 
 use yii\helpers\Html;
 use common\models\CovResearch;
