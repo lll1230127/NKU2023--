@@ -36,13 +36,7 @@ class ArticleSearch extends Article
         return Model::scenarios();
     }
 
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
+
     public function search($params)
     {
         $query = Article::find();
@@ -56,7 +50,8 @@ class ArticleSearch extends Article
         if (!$this->validate()) {
             return $dataProvider;
         }
-
+        
+        // 这些属性需要精确查找
         $query->andFilterWhere([
             'id' => $this->id,
             'date' => $this->date,
@@ -66,6 +61,7 @@ class ArticleSearch extends Article
             'category_id' => $this->category_id,
         ]);
 
+        // 这些属性需要模糊查找
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'content', $this->content])
