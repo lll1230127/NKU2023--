@@ -95,7 +95,7 @@ $this->title = 'Contact';
             <h3 class="section-title-sub text-primary">Who are we?</h3>
             <h2 class="section-title mb-3">为什么要开发这个网址？</h2>
             <p>我们开发这个网页是为了让人们更加了解核辐射和核污染的相关信息；</br>
-              我们收集来自各个媒体和机构对于核辐射、日本排放核污水的报道，将其汇总、分类，形成了科普, 新闻, 研究三个类目；</br>
+              我们收集来自各个媒体和机构对于核辐射、核污染的报道，将其汇总、分类，形成了科普, 新闻, 研究三个类目；</br>
               我们制作了相关的博客系统，希望人们能在此分享他们对于核辐射的看法和视频；</br>
               我们还收集了从2023-08-26至今的全国空气吸收剂量率, 以反映各地收到的核辐射情况</br>
               最后，希望人们能通过联系页面将自己的信息及时反馈给我们。</p>
@@ -112,7 +112,7 @@ $this->title = 'Contact';
           <div class="col-md-6 align-self-center">
             <h3 class="section-title-sub text-primary">Key Feautures</h3>
             <h2 class="section-title mb-4">网站特点</h2>
-            <p class="lead">这是一个核污染宣传站。</p>
+            <p class="lead">这是一个核污染和核辐射的宣传站，主题是关注核辐射，关注未来。</p>
             <p>我们提供了各种关于核辐射的信息，您可以在这里获取国内外关于核辐射、核泄漏的新闻资料，您也可以分享您对于核污染的看法，将制作的与核有关的影像上传于本站。</p>
             <p>同时，如果您对本网站的内容有任何疑问，或者有与核污染有关的一切信息和内容，欢迎通过本页最下方的表格联系我们，您也可以获取我们的联络方式，以便在第一时间找到我们，真诚感谢您的支持！</p>
             <p class="mt-4"><a href="#contactformanchor" class="spepcial_link">跳转到联系表格</a></p>
@@ -144,9 +144,9 @@ $this->title = 'Contact';
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="icon-line-trophy mr-3"></span>
-              <strong class="number" data-number="33">0</strong>
+              <strong class="number" data-number="9">0</strong>
             </div>
-            <span class="caption">Days Spent</span>
+            <span class="caption">Days Running</span>
           </div>
 
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
