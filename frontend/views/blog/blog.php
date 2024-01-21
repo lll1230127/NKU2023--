@@ -3,7 +3,7 @@
 /**
  * Team:lllg,NKU
  * coding by 郭昱杰 2111066
- * 前台blog主页面
+ * 前台blog主页面，参考模板链接 https://colorlib.com/wp/template/revive/，在此基础上进行一定的修改
  */
 
 use yii\widgets\LinkPager;
