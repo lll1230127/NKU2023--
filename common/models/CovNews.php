@@ -26,7 +26,7 @@ class CovNews extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%cov_news}}';
+        return '{{%news}}';
     }
 
     /**
