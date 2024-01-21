@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * 前台blog主页面
+ */
 
 use yii\widgets\LinkPager;
 use yii\helpers\Url;
@@ -42,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--main content start-->
 <div class="main-content">
 <section class="home-banner-area relative">
+    <!--图片滑动-->
             <div class="container-fluid">
                 <div class="row">
                     <div class="owl-carousel home-banner-owl">

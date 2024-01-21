@@ -2,9 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\ArticleSearch */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * gii生成
+ */
 ?>
 
 <div class="article-search">

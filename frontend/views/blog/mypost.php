@@ -3,9 +3,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\ArticleSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * 管理当前账号所写文章的界面，与后台实现类似
+ */
 
 $this->title = ' My articles';
 $this->params['breadcrumbs'][] = $this->title;

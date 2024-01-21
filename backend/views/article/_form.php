@@ -2,10 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\ckeditor\CKEditor;
-
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Article */
-/* @var $form yii\bootstrap4\ActiveForm */
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * gii生成
+ */
 ?>
 
 <div class="article-form">

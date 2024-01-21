@@ -2,6 +2,7 @@
 /**
  * Team:lllg,NKU
  * coding by 郭昱杰 2111066
+ * 显示一个博客文章的摘要或列表项
  */
 
 /** @var $model \frontend\models\Article */
