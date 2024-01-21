@@ -3,7 +3,7 @@
 /**
  * Team:lllg,NKU
  * coding by 李秉睿 2113087
- * login page
+ * login page 模板
  */
 
 /* @var $this yii\web\View */

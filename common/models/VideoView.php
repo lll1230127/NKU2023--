@@ -1,7 +1,11 @@
 <?php
 
 namespace common\models;
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338，刘国民 2113946
+*  video访问数据库，gii生成
+ */
 //use common\models\query\UserQuery;
 use common\models\query\VideoQuery;
 use common\models\query\VideoViewQuery;

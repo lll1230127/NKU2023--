@@ -139,7 +139,7 @@ $this->title = 'Homework';
               <p>Lines of Code</p>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
-              <h1 class="counter">50</h1>
+              <h1 class="counter">126</h1>
               <p>Commits</p>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
@@ -179,7 +179,7 @@ $this->title = 'Homework';
               </div>
               <div class="bottom-part">
                 <h1>下载</h1>
-                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业1.zip" download="作业1">下载</a>
+                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业1.zip" download="全部成员作业1.zip">下载</a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 single-price">
@@ -196,7 +196,7 @@ $this->title = 'Homework';
               </div>
               <div class="bottom-part">
                 <h1>下载</h1>
-                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业2.zip" download="全部成员作业2">下载</a>
+                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业2.zip" download="全部成员作业2.zip">下载</a>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 single-price">
@@ -214,7 +214,7 @@ $this->title = 'Homework';
               </div>
               <div class="bottom-part">
                 <h1>下载</h1>
-                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业3.zip" download="全部成员作业3">下载</a>
+                <a class="price-btn text-uppercase" href="../../../data/personal/全部成员作业3.zip" download="全部成员作业3.zip">下载</a>
               </div>
             </div>                                    
           </div>

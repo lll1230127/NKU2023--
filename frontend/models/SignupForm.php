@@ -5,8 +5,11 @@ use Yii;
 use yii\base\Model;
 use common\models\User;
 
-/**
- * Signup form
+
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  登录表，模板有的，改了一改
  */
 class SignupForm extends Model
 {

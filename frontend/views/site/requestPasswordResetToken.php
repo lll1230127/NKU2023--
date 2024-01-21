@@ -1,7 +1,9 @@
 <?php
 
 /**
- * This is the display of video
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  最后没有来及完成，是模板的部分
  */
 
 

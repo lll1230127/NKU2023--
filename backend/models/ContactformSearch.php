@@ -1,6 +1,10 @@
 <?php
 namespace backend\models;
-
+/**
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * gii生成
+ */
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\ContactForm;

@@ -1,6 +1,10 @@
 <?php
 namespace common\models;
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  user访问数据库，gii生成
+ */
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
