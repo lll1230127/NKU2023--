@@ -11,7 +11,7 @@ use yii\helpers\Html;
 /* @var $model common\models\CovResearch */
 
 $this->title = 'Update Research: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Cov Researches', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Researches', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

@@ -69,7 +69,7 @@ $this->title = 'Homework';
               <span class="lnr lnr-laptop-phone"></span>
               <a href="../../../data/team/lllg_需求文档(2112338_2113087_2111066_2113946).pdf"><h4>需求文档</h4></a>
               <p>
-                Made by 
+                Made by 李秉睿
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ $this->title = 'Homework';
               <span class="lnr lnr-file-empty"></span>
               <a href="../../../data/team/lllg_设计文档(2112338_2113087_2111066_2113946).pdf"><h4>设计文档</h4></a>
               <p>
-                Made by 
+                Made by 李秉睿
               </p>
             </div>  
           </div>
@@ -123,7 +123,7 @@ $this->title = 'Homework';
               <span class="lnr lnr-rocket"></span>
               <a href="#"><h4>More...</h4></a>
               <p>
-                complementing...
+                completing...
               </p>
             </div>        
           </div>                            

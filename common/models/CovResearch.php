@@ -24,7 +24,7 @@ class CovResearch extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%cov_research}}';
+        return '{{%research}}';
     }
 
     /**
