@@ -38,7 +38,7 @@ $(document).ready(function () {
 
         optionChinaMap = {
             title: {
-                text: '中国核污染辐射一览图',
+                text: '中国各省份核辐射一览图（2024-01-21更新）',
                 subtext: 'Data from https://data.rmtc.org.cn/',
                 sublink: 'https://data.rmtc.org.cn/',
                 left: 'right',
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
             tooltip: {//提示框组件
                 formatter:function(params,ticket, callback){//提示框浮层内容格式器，支持字符串模板和回调函数两种形式。
-                    return params.seriesName+'<br />'+params.name+'：'+params.value
+                    return '核辐射数值'+'<br />'+params.name+'：'+params.value + 'nGy/h'
                 }//数据格式化
             },
         backgroundColor:'rgba(255,255,255,0.7)',//背景色

@@ -1,7 +1,7 @@
 <?php
 /**
- * Team:布利啾啾迪布利多,NKU
- * coding by huangjingzhi 1810729,20200509
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
  */
 
 /** @var $model \frontend\models\Article */

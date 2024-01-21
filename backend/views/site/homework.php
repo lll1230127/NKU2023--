@@ -112,7 +112,7 @@ $this->title = 'Homework';
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-pie-chart"></span>
-              <a href="../../../data/team/lllg_项目展示(2112338_2113087_2111066_2113946).pptx" download="布利啾啾迪布利多_项目展示(1810729_1810756_1813265_1713667_1810546).pdf"><h4>项目展示PPT</h4></a>
+              <a href="../../../data/team/lllg_项目展示(2112338_2113087_2111066_2113946).pptx" download="lllg_项目展示(2112338_2113087_2111066_2113946).pptx"><h4>项目展示PPT</h4></a>
               <p>
                 Made by 
               </p>

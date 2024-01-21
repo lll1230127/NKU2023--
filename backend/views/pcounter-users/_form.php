@@ -1,9 +1,5 @@
 <?php
-/**
- * Team:布利啾啾迪布利多,NKU
- * coding by 袁嘉蔚 1810546,20200529
- * a view for PcounterUsers
- */
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
