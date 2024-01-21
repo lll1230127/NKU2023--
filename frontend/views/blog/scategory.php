@@ -3,6 +3,12 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * gii生成
+ */
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Article */
 /* @var $form yii\widgets\ActiveForm */

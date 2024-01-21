@@ -6,7 +6,7 @@ use yii\helpers\Url;
 /**
  * Team:lllg,NKU
  * coding by 郭昱杰 2111066
- * 管理当前账号所写文章的界面，与后台实现类似
+ * 管理当前账号所写文章的界面，与后台实现类似，gii生成基础上做了一下修改
  */
 
 $this->title = ' My articles';

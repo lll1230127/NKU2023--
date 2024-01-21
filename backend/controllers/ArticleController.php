@@ -4,7 +4,7 @@ namespace backend\controllers;
 /**
 *  Team: lllg,NKU
 *  Coding by 郭昱杰 2111066
-*  有关文章的Controller
+*  gii生成，有关文章的Controller，在此基础上做了一定修改
  */
 
 use Yii;

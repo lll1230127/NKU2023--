@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * 博客详细页面，参考模板完成
+ */
+
 use yii\helpers\Url;
 use yii\helpers\Html;
 use common\models\User;
