@@ -36,7 +36,11 @@ $this->title = '核辐射资料站';
 
 
 <div class="site-index">
-    <section class="slider"></section>
+    <section class="slider">
+        <!-- Add the line below for centered text -->
+        <div class="headline" style="text-align: center;">
+            <h1 style="font-size: 45px; font-weight: bold; color: #000; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">关注核辐射污染，就是关注地球的未来</h1>
+        </div>
     <div class="container">
         <div class="card-carousel">
             <div class="card" id="1">
@@ -100,10 +104,5 @@ $this->title = '核辐射资料站';
         </div>
         <a href="#" class="visuallyhidden card-controller">Carousel controller</a>
     </div>
-
-        <!-- 下面第3行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <!-- 下面第2行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <!-- 下面这行是疫情地图的占位符！！！！！！！注意别删了！！！！ -->
-    <!-- <div id="plague-map"></div -->
 
 </div>

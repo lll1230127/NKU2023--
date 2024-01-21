@@ -105,7 +105,7 @@ $(document).ready(function () {
                            normal:{//是图形在默认状态下的样式
                                label:{
                                    show: true,
-                                   textStyle: {color: "rgb(249, 249, 249)",fontSize : 15}
+                                   textStyle: {color: "#8B0000",fontSize : 15}
 
                                }
                            },
