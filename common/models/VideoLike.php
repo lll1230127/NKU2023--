@@ -1,9 +1,5 @@
 <?php
 
-/**
- * coding by huangjingzhi 1810729,20200504
- */
-
 namespace common\models;
 
 use common\models\query\VideoLikeQuery;
