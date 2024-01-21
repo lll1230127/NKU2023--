@@ -1,8 +1,9 @@
 <?php
 /**
- * 上传video
- */
-
+ * Team:lllg,NKU
+ * Coding by: 刘国民 2113946 
+ * 上传视频时显示的页面
+*/
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
