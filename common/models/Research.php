@@ -10,7 +10,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%cov_research}}".
+ * This is the model class for table "{{%research}}".
  *
  * @property int $id
  * @property string|null $title

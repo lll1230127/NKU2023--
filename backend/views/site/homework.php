@@ -67,7 +67,7 @@ $this->title = 'Homework';
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-laptop-phone"></span>
-              <a href="../../../data/team/lllg_需求文档(2112338_2113087_2111066_2113946).pdf"><h4>需求文档</h4></a>
+              <a href="../../../data/team/lllg_需求文档(2112338_2113087_2111066_2113946).pdf" download="lllg_需求文档(2112338_2113087_2111066_2113946).pdf"><h4>需求文档</h4></a>
               <p>
                 Made by 李秉睿
               </p>
@@ -76,7 +76,7 @@ $this->title = 'Homework';
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-file-empty"></span>
-              <a href="../../../data/team/lllg_设计文档(2112338_2113087_2111066_2113946).pdf"><h4>设计文档</h4></a>
+              <a href="../../../data/team/lllg_设计文档(2112338_2113087_2111066_2113946).pdf" download="lllg_设计文档(2112338_2113087_2111066_2113946).pdf"><h4>设计文档</h4></a>
               <p>
                 Made by 李秉睿
               </p>
@@ -85,25 +85,25 @@ $this->title = 'Homework';
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-picture"></span>
-              <a href="../../../data/team/lllg_实现文档(2112338_2113087_2111066_2113946).pdf"><h4>实现文档</h4></a>
+              <a href="../../../data/team/lllg_实现文档(2112338_2113087_2111066_2113946).pdf" download="lllg_实现文档(2112338_2113087_2111066_2113946).pdf"><h4>实现文档</h4></a>
               <p>
-                Made by 
+                Made by team
               </p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-tablet"></span>
-              <a href="../../../data/team/lllg_用户手册(2112338_2113087_2111066_2113946).pdf"><h4>用户手册</h4></a>
+              <a href="../../../data/team/lllg_用户手册(2112338_2113087_2111066_2113946).pdf" download="lllg_用户手册(2112338_2113087_2111066_2113946).pdf"><h4>用户手册</h4></a>
               <p>
-                Made by 
+                Made by 郭昱杰
               </p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="single-services">
               <span class="lnr lnr-enter"></span>
-              <a href="../../../data/team/lllg_部署文档(2112338_2113087_2111066_2113946).pdf"><h4>部署文档</h4></a>
+              <a href="../../../data/team/lllg_部署文档(2112338_2113087_2111066_2113946).pdf" download="lllg_部署文档(2112338_2113087_2111066_2113946).pdf" ><h4>部署文档</h4></a>
               <p>
                 Made by 刘国民
               </p>
@@ -114,7 +114,7 @@ $this->title = 'Homework';
               <span class="lnr lnr-pie-chart"></span>
               <a href="../../../data/team/lllg_项目展示(2112338_2113087_2111066_2113946).pptx" download="lllg_项目展示(2112338_2113087_2111066_2113946).pptx"><h4>项目展示PPT</h4></a>
               <p>
-                Made by 
+                Made by team
               </p>
             </div>
           </div>
