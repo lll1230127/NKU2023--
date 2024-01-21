@@ -1,8 +1,11 @@
 <?php
 
 /**
- * video page layout
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  video界面的框架
  */
+
 
 /* @var $this \yii\web\View */
 /* @var $content string */

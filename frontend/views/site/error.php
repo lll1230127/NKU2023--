@@ -1,5 +1,9 @@
 <?php
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  模板本身就有的错误处理，检查了一下改了样式
+ */
 
 /* @var $this yii\web\View */
 /* @var $name string */

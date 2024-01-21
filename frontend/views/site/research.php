@@ -6,7 +6,7 @@
  */
 
 use yii\helpers\Html;
-use common\models\CovResearch;
+use common\models\Research;
 use yii\data\Pagination;
 use yii\web\Response;
 use yii\web\Controller;
@@ -168,18 +168,18 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="container">
 			<div class="row m-rl--1">
 				<div class="col-12 p-rl-1 p-b-2">					
-					<?php $count = CovResearch::find()->count(); $pagination = new Pagination(['totalCount' => $count,'pageSize' => 10]);
-							$articles = CovResearch::find()->offset($pagination->offset)->limit($pagination->limit)->all();?>
+					<?php $count = Research::find()->count(); $pagination = new Pagination(['totalCount' => $count,'pageSize' => 10]);
+							$articles = Research::find()->offset($pagination->offset)->limit($pagination->limit)->all();?>
 					
-					<?php foreach ($articles as $CovResearch) : ?>
+					<?php foreach ($articles as $Research) : ?>
 						<h3 class="how1-child2 m-t-14 m-b-10">
-							<a class="how-txt1 size-a-6 f1-m-4 cl1 hov-cl10 trans-03" href="<?= Html::encode("{$CovResearch->url}") ?>">
-								<?= Html::encode("·{$CovResearch->title}·") ?>
+							<a class="how-txt1 size-a-6 f1-m-4 cl1 hov-cl10 trans-03" href="<?= Html::encode("{$Research->url}") ?>">
+								<?= Html::encode("·{$Research->title}·") ?>
 							</a>
 						</h3>
               			<h3 class="how1-child2 m-t-14 m-b-10">
 						    <a class="how-txt1 size-a-6 f1-s-7 cl5 trans-03">
-							<?= Html::encode("{$CovResearch->summary}") ?>
+							<?= Html::encode("{$Research->summary}") ?>
 							</a>                  			
 						</h3>
 
@@ -193,7 +193,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							</span>
 								
 							<span class="f1-s-3 cl11">
-								<?= Html::encode("{$CovResearch->date}") ?>
+								<?= Html::encode("{$Research->date}") ?>
 							</span>
 						</span>
 					<?php endforeach; ?>

@@ -210,25 +210,6 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionCovResearch()
-    {
-        $query = CovResearch::find();
-
-        $pagination = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
-        ]);
-
-        $CovResearchs = $query->orderBy('id')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
-        return $this->render('research', [
-            'covresearch' => $CovResearchs,
-            'pagination' => $pagination,
-        ]);
-    }
     public function actionResearch()
     {
         $this->layout="ab";

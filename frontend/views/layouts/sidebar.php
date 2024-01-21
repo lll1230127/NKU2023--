@@ -1,6 +1,8 @@
 <?php
 /**
- * 侧边导航
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  侧边导航
  */
 
 use yii\rest\IndexAction;
