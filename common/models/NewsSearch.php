@@ -7,12 +7,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\CovNews;
+use common\models\News;
 
 /**
- * CovNewsSearch represents the model behind the search form of `common\models\CovNews`.
+ * NewsSearch represents the model behind the search form of `common\models\News`.
  */
-class CovNewsSearch extends CovNews
+class NewsSearch extends News
 {
     /**
      * {@inheritdoc}
@@ -43,7 +43,7 @@ class CovNewsSearch extends CovNews
      */
     public function search($params)
     {
-        $query = CovNews::find();
+        $query = News::find();
 
         // add conditions that should always apply here
 

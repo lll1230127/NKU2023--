@@ -27,7 +27,7 @@ echo \yii\bootstrap4\Nav::widget([
         ],
         [
             'label'=>'News',
-            'url'=>['/cov-news/index']
+            'url'=>['/news/index']
         ],
         [
             'label'=>'Research',

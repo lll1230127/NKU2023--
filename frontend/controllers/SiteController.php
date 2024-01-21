@@ -15,7 +15,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use common\models\CovNews;
+use common\models\News;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -82,7 +82,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data=CovNews::getAll(6);
+        $data=News::getAll(6);
         return $this->render('index',[
             'news'=>$data['news'],
         ]);
