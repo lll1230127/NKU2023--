@@ -191,7 +191,7 @@ $this->title = 'Contact';
             <img src="../../../frontend/web/img/aboutus/Person_02.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
             <h3>李秉睿</h3>
             <p class="text-muted">组员</p>
-            <p class="lead">部分数据处理、新闻、研究、联系、登录界面设计和编写</p>
+            <p class="lead">数据库设计和部分数据处理，新闻、研究、联系等界面设计和编写</p>
             <p>千首古风吟子美，一身新月种丁香</p>
             <div class="social mt-4">
               <a href="https://github.com/U0Ghost" target="_blank"><span class="icon-github"></span></a>
