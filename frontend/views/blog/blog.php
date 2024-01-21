@@ -150,11 +150,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </p>
 
                                         <div class="d-flex justify-content-between mt-20">
-                                            <div>
-                                                <a href="<?= Url::toRoute(['blog/blog']);?>" class="blog-post-btn">
-                                                    Read More <span class="ti-arrow-right"></span>
-                                                </a>
-                                            </div>
+                                            
                                             <div class="category">
                                                 <a href="#">
                                                     <span class="ti-folder mr-1"></span><?= $article->category->title?>
@@ -194,11 +190,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         </p>
 
                                         <div class="d-flex justify-content-between mt-20">
-                                            <div>
-                                                <a href="<?= Url::toRoute(['blog/blog']);?>" class="blog-post-btn">
-                                                    Read More <span class="ti-arrow-right"></span>
-                                                </a>
-                                            </div>
+                                            
                                             <div class="category">
                                                 <a href="#">
                                                     <span class="ti-folder mr-1"></span> <?= $article->category->title?>
