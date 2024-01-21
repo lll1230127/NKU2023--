@@ -44,6 +44,7 @@ $this->title = 'Contact';
       <ul id="w1" class="navbar-nav ml-auto nav">
         <li class="nav-item"><a class="nav-link" href="../../web/site/index">主页</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/site/about">科普</a></li>
+        <li class="nav-item"><a class="nav-link " href="../../web/site/map">数据</a></li>
         <li class="nav-item"><a class="nav-link " href="../../web/blog/blog">博客</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/video/index">视频</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/news/index">新闻</a></li>
@@ -98,6 +99,7 @@ $this->title = 'Contact';
             <p>我们开发这个网页是为了让人们更加了解核辐射和核污染的相关信息；</br>
               我们收集来自各个媒体和机构对于核辐射、日本排放核污水的报道，将其汇总、分类，形成了科普, 新闻, 研究三个类目；</br>
               我们制作了相关的博客系统，希望人们能在此分享他们对于核辐射的看法和视频；</br>
+              我们还收集了从2023-08-26至今的全国空气吸收剂量率, 以反映各地收到的核辐射情况</br>
               最后，希望人们能通过联系页面将自己的信息及时反馈给我们。</p>
           </div>
         </div>
@@ -128,7 +130,7 @@ $this->title = 'Contact';
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="icon-line-mobile mr-3"></span>
-              <strong class="number" data-number="131801">0</strong>
+              <strong class="number" data-number="142844">0</strong>
             </div>
             <span class="caption">Lines of Codes</span>
           </div>
@@ -136,7 +138,7 @@ $this->title = 'Contact';
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="icon-line-lightbulb mr-3"></span>
-              <strong class="number" data-number="207">0</strong>
+              <strong class="number" data-number="102">0</strong>
             </div>
             <span class="caption">Commits</span>
           </div>
@@ -144,7 +146,7 @@ $this->title = 'Contact';
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="icon-line-trophy mr-3"></span>
-              <strong class="number" data-number="95">0</strong>
+              <strong class="number" data-number="33">0</strong>
             </div>
             <span class="caption">Days Spent</span>
           </div>
@@ -152,7 +154,7 @@ $this->title = 'Contact';
           <div class="col-6 col-md-6 col-lg-3 mb-5 mb-lg-0">
             <div class="d-flex align-items-center justify-content-center mb-2">
               <span class="icon-line-puzzle mr-3"></span>
-              <strong class="number" data-number="7">0</strong>
+              <strong class="number" data-number="4">0</strong>
             </div>
             <span class="caption">Meetings</span>
           </div>
@@ -206,8 +208,8 @@ $this->title = 'Contact';
 
             <h3>郭昱杰</h3>
             <p class="text-muted">组员</p>
-            <p class="lead">工作</p>
-            <p>介绍段落</p>
+            <p class="lead">博客及评论模块的数据处理、后端设计、前端界面编写</p>
+            <p>作业快点结束QwQ</p>
             <div class="social mt-4">
               <a href="https://github.com/JieJie-OvO" target="_blank"><span class="icon-github"></span></a>
               <a href="mailto:2111066@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
@@ -219,11 +221,11 @@ $this->title = 'Contact';
             <img src="../../../frontend/web/img/aboutus/Person_04.jpg" alt="Image" class="img-fluid mb-4 rounded" height="300" width="300">
             <h3>刘国民</h3>
             <p class="text-muted">组员</p>
-            <p class="lead">工作</p>
-            <p>介绍段落</p>
+            <p class="lead">视频页面的整体框架、后台对视频的增删改查</p>
+            <p>好想睡觉、、</p>
             <div class="social mt-4">
               <a href="https://github.com/NKU-liu1114" target="_blank"><span class="icon-github"></span></a>
-              <a href="mailto:2113946@mail.nankai.edu.cn" target="_blank"><span class="icon-envelope-o"></span></a>
+              <a href="mailto:1287190042@qq.com" target="_blank"><span class="icon-envelope-o"></span></a>
               <a href="https://cc.nankai.edu.cn/" target="_blank"><span class="icon-institution"></span></a>
             </div>
           </div>
