@@ -31,7 +31,7 @@ echo \yii\bootstrap4\Nav::widget([
         ],
         [
             'label'=>'Research',
-            'url'=>['/cov-research/index']
+            'url'=>['/research/index']
         ],
         [
             'label'=>'Contact Info',

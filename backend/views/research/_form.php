@@ -9,7 +9,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CovResearch */
+/* @var $model common\models\Research */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
