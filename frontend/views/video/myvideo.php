@@ -10,19 +10,27 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'My videos';
+$this->title = '个人主页';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+
+.btn-icon:hover {
+    transform: scale(1.1); /* 鼠标悬停时放大效果 */
+}
+
+</style>
+
 <link rel="stylesheet" href="../../../backend/web/css/main.css">
-<div class="contect-wrapper">
+<div class="content-wrapper text-center">
     <div class="video-index">
 
-        <h1><?= Html::encode($this->title) ?></h1>
+        <h1 class="mb-3"><?= Html::encode($this->title) ?></h1>
+        <h2 class="mb-4">欢迎您为核污染防治事业贡献一份力量！</h2>
 
-        <p>
-            <?= Html::a('Create Video', ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
-
+        <div class="p-4"  >
+            <?= Html::a('<i class="fas fa-hands-helping fa-3x"></i><br>助我们一臂之力吧', ['create'], ['class' => 'btn btn-success btn-icon '] ) ?>
+        </div>
 
         <?= GridView::widget([
             'dataProvider' => $dataProvider,

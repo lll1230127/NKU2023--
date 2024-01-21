@@ -149,24 +149,35 @@ main{
 
 
 
-aside{
-    min-width: 200px;
+aside {
+    min-width: 100px; /* 增加最小宽度，使内容更大 */
+    max-height: 480px;
+    background-color: #E4D795; /* 设置主背景色为深蓝色 */
+    color: #ECF0F1; /* 设置文字颜色为浅灰色 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
 }
 
-aside .nav-pills .nav-link{
-    border-radius:0;
-    color:#444444;
+aside .nav-pills .nav-link {
+    border-radius: 0;
+    color: #ECF0F1; /* 设置链接文字颜色为浅灰色 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
 }
 
-aside .nav-pills .nav-link:hover{
-    background:rgba(0,0,0,0.05);
+aside .nav-pills .nav-link:hover {
+    background: #808285; /* 悬停时的背景色为深蓝色 */
+    color: #D4AC0D; /* 悬停时的文字颜色为深黄色 */
+    
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+    transform: scale(1.1); /* 设置悬停和选中时的放大效果 */
+}
+aside .nav-pills .nav-link.active {
+    background: #808285; /* 激活时的背景色为深蓝色 */
+    color: #D4AC0D; /* 激活时的文字颜色为深黄色 */
+    border-left: 4px solid #D4AC0D; /* 添加左边框，颜色为深黄色 */
+    transform: scale(1.1); /* 设置悬停和选中时的放大效果 */
+    transition: transform 0.3s ease; /* 添加过渡效果 */
 }
 
-aside .nav-pills .nav-link.active{
-    background:rgba(0,0,0,0.05);
-    color:#b90000;
-    border-left: 4px solid #b90000;
-}
 
 .upload-icon{
     width: 200px;

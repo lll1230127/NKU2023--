@@ -7,8 +7,8 @@
 
 /**
  * Team:lllg,NKU
- * Coding by: 刘国民 2113946 
- * 视频页的初始界面
+ * Coding by: 刘国民 2113946 、李威远2112338
+ * 视频页的初始界面，李威远过来做了美化
 */
 
 
@@ -18,18 +18,41 @@ $this->title = 'Video';
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
-    <form action="<?php echo Url::to(['/video/search']) ?>"
-          class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search"
-               name="keyword"
-               value="<?php echo Yii::$app->request->get('keyword') ?>">
-        <button class="btn btn-outline-success my-2 my-sm-0">Search</button>
+<style>
+    /* 默认按钮样式 */
+    .btn-search {
+        width: 100px; /* 设置按钮宽度，根据需要调整 */
+        background-color: #ffdb25; /* 新的背景颜色 */
+        color: #000; /* 文字颜色，根据需要调整 */
+        transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+        text-align: center; /* 文字居中 */
+        line-height: 20px; /* 与按钮高度相等，可根据需要调整 */
+    }
+
+    /* 鼠标悬停时的按钮样式 */
+    .btn-search:hover {
+        background-color: #c2a20f; /* 悬停时的背景颜色 */
+        color: #000; /* 悬停时的文字颜色 */
+    }
+</style>
+
+<div class="row">
+    <form action="<?php echo Url::to(['/video/search']) ?>" class="form-inline my-2 my-lg-0">
+        <div class="col-md-8">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                   name="keyword"
+                   value="<?php echo Yii::$app->request->get('keyword') ?>">
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-success my-2 my-sm-0 btn-block btn-search">Search</button>
+        </div>
     </form>
-    <div>
-        跟随新闻报道，让我们一起关注核污染，守护地球家园！
-    </div>
-    
-    
+</div>
+<div>
+    跟随新闻报道，让我们一起关注核污染，守护地球家园！
+</div>
+
+
 <?php
 echo \yii\widgets\ListView::widget([
     'dataProvider'=>$dataProvider,
@@ -43,4 +66,4 @@ echo \yii\widgets\ListView::widget([
     ]
 ])?>
 
-<img width=800px src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2021%2F0413%2F5f9ad79dj00qri7bo004hc000h9009im.jpg&thumbnail=660x2147483647&quality=80&type=jpg" >
+

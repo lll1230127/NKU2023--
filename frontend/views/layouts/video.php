@@ -35,15 +35,14 @@ AppAsset::register($this);
 
 <body>
     <?php $this->beginBody() ?>
-
+    
     <div class="wrap h-100 d-flex flex-column">
         <?php echo $this->render('header') ?>
 
 
-        <main class="d-flex">
+        <main class="d-flex"  style="background-color:rgba(228,215,149,0.2);">
             <?php echo $this->render('sidebar') ?>
-            <div class="content-wrapper p-3">
-                
+            <div class="content-wrapper p-3" style="max-height: 180px;">
                 <?= Alert::widget() ?>
                 <?= $content ?>
             </div>
