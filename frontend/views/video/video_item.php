@@ -1,7 +1,9 @@
 <?php
 
-/**
- * This is the display of video
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338，刘国民 2113946
+*  视频的窗口
  */
 
 use common\models\Video;

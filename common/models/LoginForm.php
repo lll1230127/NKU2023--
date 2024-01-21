@@ -4,8 +4,10 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 
-/**
- * Login form
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  登录model，模板自带
  */
 class LoginForm extends Model
 {

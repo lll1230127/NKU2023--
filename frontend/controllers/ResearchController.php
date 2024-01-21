@@ -1,6 +1,8 @@
 <?php
 /**
- * 由gii生成
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  控制器，gii生成
  */
 
 namespace frontend\controllers;

@@ -1,7 +1,9 @@
 <?php
 
-/**
- * This is the search of video
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338，刘国民 2113946
+*  搜索主页的部分
  */
 
 /** @var $dataProvider ActiveDataProvider */

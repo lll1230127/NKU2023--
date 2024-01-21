@@ -1,4 +1,9 @@
 <?php
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338，刘国民 2113946
+*  video访问数据库，gii生成
+ */
 
 namespace common\models;
 

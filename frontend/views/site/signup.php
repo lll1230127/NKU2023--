@@ -1,5 +1,9 @@
 <?php
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  协助完成了sign页面和登录系统的设计
+ */
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap4\ActiveForm */
