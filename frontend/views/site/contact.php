@@ -50,9 +50,7 @@ $this->title = 'Contact';
         <li class="nav-item"><a class="nav-link" href="../../web/news/index">新闻</a></li>
         <li class="nav-item"><a class="nav-link" href="../../web/site/research">调研</a></li>
         <li class="nav-item"><a class="nav-link active" href="../../web/site/contact">关于</a></li>
-        <li class="nav-item"><a class="nav-link" href="../../web/site/signup">注册</a></li>
-        <li class="nav-item"><a class="nav-link" href="../..web/site/login">登录</a></li>
-      </ul>
+        </ul>
     </div>
   </div>
 </nav>
@@ -72,7 +70,7 @@ $this->title = 'Contact';
     </div>
   </div>
 
-  <div class="site-wrap">
+  <div class="site-wrap" style="background-color:rgba(255,242,226,0.8)>
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -90,7 +88,7 @@ $this->title = 'Contact';
           <div class="col-lg-6 mb-5 mb-lg-0">
 
 
-            <img src="../../../frontend/web/img/aboutus/sq_img_10.jpg" alt="Image" class="img-fluid img-shadow">
+            <img src="../../../frontend/web/img/aboutus/jinnan2.jpg" alt="Image" class="img-fluid img-shadow">
             </a>
           </div>
           <div class="col-lg-5 ml-auto">
@@ -120,8 +118,8 @@ $this->title = 'Contact';
             <p class="mt-4"><a href="#contactformanchor" class="spepcial_link">跳转到联系表格</a></p>
           </div>
           <div class="col-md-5 ml-auto img-overlap">
-            <div class="img-1"><img src="../../../frontend/web/img/aboutus/sq_img_6.jpg" alt="Image" class="img-fluid img-shadow"></div>
-            <div class="img-2"><img src="../../../frontend/web/img/aboutus/123456.jpg" alt="Image" class="img-fluid img-shadow"></div>
+            <div class="img-1"><img src="../../../frontend/web/img/aboutus/zhou.jpg" alt="Image" class="img-fluid img-shadow"></div>
+            <div class="img-2"><img src="../../../frontend/web/img/aboutus/mz.jpg" alt="Image" class="img-fluid img-shadow"></div>
           </div>
         </div>
 
