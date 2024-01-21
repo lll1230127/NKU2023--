@@ -1,7 +1,10 @@
 <?php
 
-/**
- * This is the  button style of video
+
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  按钮的样式设计
  */
 
 /** @var $model Video */

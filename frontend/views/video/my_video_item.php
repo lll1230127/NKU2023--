@@ -1,7 +1,10 @@
 <?php
-/**
- * video display
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  样式进行了美化
  */
+
 
 /** @var $model \common\models\Video */
 

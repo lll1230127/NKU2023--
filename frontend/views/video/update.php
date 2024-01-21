@@ -1,6 +1,8 @@
 <?php
-/**
- * update video
+ /**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338，刘国民 2113946
+*  更新视频的部分
  */
 
 use yii\helpers\Html;

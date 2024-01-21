@@ -1,5 +1,9 @@
 <?php
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  后台数据
+ */
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 

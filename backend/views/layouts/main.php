@@ -3,6 +3,12 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  后台主页面框架
+ */
+
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap4\Nav;
