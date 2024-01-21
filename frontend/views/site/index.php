@@ -67,7 +67,7 @@ $this->title = '核辐射资料站';
                 </div>
             </div>
             <div class="card" id="3">
-                <div class="sliderThumb" style=" background:url(<?= $url ?>wang.jpg) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
+                <div class="sliderThumb" style=" background:url(<?= $url ?>pai.png) 50% 50% no-repeat; background-size:cover;height:60%;width:100%">
 
                 </div>
                 <div class="sliderCaption">

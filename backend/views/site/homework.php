@@ -139,7 +139,7 @@ $this->title = 'Homework';
               <p>Lines of Code</p>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
-              <h1 class="counter">140</h1>
+              <h1 class="counter">144</h1>
               <p>Commits</p>
             </div>
             <div class="col-lg-3 col-md-6 single-fact">
