@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * gii生成
+ */
 namespace frontend\controllers;
 
 use Yii;

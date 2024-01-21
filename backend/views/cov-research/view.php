@@ -12,7 +12,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\CovResearch */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Cov Researches', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Researches', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

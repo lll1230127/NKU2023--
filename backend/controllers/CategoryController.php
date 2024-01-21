@@ -5,7 +5,7 @@ namespace app\modules\admin\controllers;
 /**
 *  Team: lllg,NKU
 *  Coding by 郭昱杰 2111066
-*  定义了有关目录的Controller
+*  gii生成，定义了有关目录的Controller
  */
 
 use Yii;

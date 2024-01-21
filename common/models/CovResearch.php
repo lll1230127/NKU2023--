@@ -1,6 +1,8 @@
 <?php
 /**
- * 由gii生成
+ * Team:lllg,NKU
+ * coding by 李秉睿 2113087
+ * gii生成
  */
 
 namespace common\models;
@@ -24,7 +26,7 @@ class CovResearch extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%cov_research}}';
+        return '{{%research}}';
     }
 
     /**
