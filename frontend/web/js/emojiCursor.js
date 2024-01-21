@@ -1,14 +1,14 @@
 /**
  * team ：LLLG队
  * coding by 李威远
- * 详情页的动态处理，做一些有趣的东西
+ * about页的动态处理，做一些有趣的东西
  */
 
 
 
 (function emojiCursor() {
   
-  var possibleEmoji = ["😀", "😂", "😆", "😊"];
+  var possibleEmoji = ["❀"];
   var width = window.innerWidth;
   var height = window.innerHeight;
   var cursor = {x: width/2, y: width/2};

@@ -1,11 +1,5 @@
 <?php
 
-/**
-*  Team: lllg,NKU
-*  Coding by 郭昱杰 2111066
-*  为目录查找提供API
- */
-
 namespace common\models;
 
 use yii\base\Model;

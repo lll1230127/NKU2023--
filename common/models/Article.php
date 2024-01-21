@@ -5,7 +5,7 @@ $formatter = \Yii::$app->formatter;
 /**
 *  Team: lllg,NKU
 *  Coding by 郭昱杰 2111066
-*  实现了后端的博客，为前端提供API
+*  实现了博客，为前端提供API(在gii生成的基础上进行了修改)
  */
 
 use common\models\User;

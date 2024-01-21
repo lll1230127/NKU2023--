@@ -1,6 +1,8 @@
 <?php
 /**
- * actioncontact相关，袁嘉蔚
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  主要完成site目录下的全部跳转，在advanced模板基础上更改而来
  */
 namespace frontend\controllers;
 
@@ -188,6 +190,7 @@ class SiteController extends Controller
      */
     public function actionNews()
     {
+        $this->layout="ab";
         return $this->render('news');
     }
 
@@ -198,10 +201,7 @@ class SiteController extends Controller
      */
     public function actionMap()
     {
-        $data=CovNews::getAll(6);
-        return $this->render('map',[
-            'news'=>$data['news'],
-        ]);
+        return $this->render('map');
     }
 
     
@@ -231,6 +231,7 @@ class SiteController extends Controller
     }
     public function actionResearch()
     {
+        $this->layout="ab";
         return $this->render('research');
     }
 

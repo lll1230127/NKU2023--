@@ -4,7 +4,7 @@
 /**
 *  Team: lllg,NKU
 *  Coding by 郭昱杰 2111066
-*  完成了后台页面博客页面设计
+*  完成了后台页面博客页面设计，gii生成，并在此基础上做出修改
  */
 
 use yii\helpers\Html;
@@ -30,7 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     ?>
-
+    <!-- 使用 Yii 框架中的GridView小部件来生成一个数据表格 -->
+    <!-- 显示数据库模型的列表 -->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -53,6 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'status',
+            // 定义更新操作
             [
                 'class' => 'yii\grid\ActionColumn',
                 'buttons' => [
@@ -64,6 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                     ]
             ],
+            // 定义删除操作
             [
                 'class' => 'yii\grid\ActionColumn',
                 'buttons' => [

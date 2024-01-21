@@ -18,7 +18,6 @@ use Yii;
  * @property int|null $user_id
  * @property int|null $article_id
  * @property int|null $status
- *
  * @property Article $article
  * @property User $user
  */
@@ -100,6 +99,10 @@ class Comment extends \yii\db\ActiveRecord
         return $this->status;
     }
 
+    /*
+     实现评论是否通过，在后台进行该操作。
+     在前台，加载评论只会加载statue为ALLOW的，DISALLOW的进行过滤
+    */
     public function allow()
     {
         $this->status = self::STATUS_ALLOW;

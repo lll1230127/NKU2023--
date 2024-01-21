@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * gii生成
+ */
 /** @var $model \frontend\models\Article */
 
 use \yii\helpers\StringHelper;
