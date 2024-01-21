@@ -1,5 +1,12 @@
 <?php
 
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  最终没有来及实现，未启用
+ */
+
+
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap4\ActiveForm */
 /* @var $model \frontend\models\ResetPasswordForm */

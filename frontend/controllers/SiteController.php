@@ -15,7 +15,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use common\models\CovNews;
+use common\models\News;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -82,7 +82,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data=CovNews::getAll(6);
+        $data=News::getAll(6);
         return $this->render('index',[
             'news'=>$data['news'],
         ]);
@@ -210,25 +210,6 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionCovResearch()
-    {
-        $query = CovResearch::find();
-
-        $pagination = new Pagination([
-            'defaultPageSize' => 5,
-            'totalCount' => $query->count(),
-        ]);
-
-        $CovResearchs = $query->orderBy('id')
-            ->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
-
-        return $this->render('research', [
-            'covresearch' => $CovResearchs,
-            'pagination' => $pagination,
-        ]);
-    }
     public function actionResearch()
     {
         $this->layout="ab";

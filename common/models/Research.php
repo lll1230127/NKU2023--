@@ -19,7 +19,7 @@ use Yii;
  * @property string|null $date
  * @property string|null $image
  */
-class CovResearch extends \yii\db\ActiveRecord
+class Research extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -58,10 +58,10 @@ class CovResearch extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return CovResearchQuery the active query used by this AR class.
+     * @return ResearchQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new CovResearchQuery(get_called_class());
+        return new ResearchQuery(get_called_class());
     }
 }

@@ -5,21 +5,20 @@
  * gii生成
  */
 
-
 namespace backend\controllers;
 
 use Yii;
-use common\models\CovNews;
-use common\models\CovNewsSearch;
+use common\models\Research;
+use common\models\ResearchSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CovNewsController implements the CRUD actions for CovNews model.
+ * ResearchController implements the CRUD actions for Research model.
  */
-class CovNewsController extends Controller
+class ResearchController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -46,12 +45,12 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Lists all CovNews models.
+     * Lists all Research models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CovNewsSearch();
+        $searchModel = new ResearchSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,7 +60,7 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Displays a single CovNews model.
+     * Displays a single Research model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -74,13 +73,13 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Creates a new CovNews model.
+     * Creates a new Research model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new CovNews();
+        $model = new Research();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -92,7 +91,7 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Updates an existing CovNews model.
+     * Updates an existing Research model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -112,7 +111,7 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Deletes an existing CovNews model.
+     * Deletes an existing Research model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -126,15 +125,15 @@ class CovNewsController extends Controller
     }
 
     /**
-     * Finds the CovNews model based on its primary key value.
+     * Finds the Research model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return CovNews the loaded model
+     * @return Research the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = CovNews::findOne($id)) !== null) {
+        if (($model = Research::findOne($id)) !== null) {
             return $model;
         }
 

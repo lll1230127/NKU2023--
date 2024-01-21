@@ -1,4 +1,9 @@
 <?php
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  blog的框架
+ */
 
 
 /* @var $this \yii\web\View */

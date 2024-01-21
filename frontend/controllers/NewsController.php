@@ -15,7 +15,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
-use common\models\CovNews;
+use common\models\News;
 use common\models\Video;
 
 
@@ -69,7 +69,7 @@ class NewsController extends Controller
     public function actionIndex()
     {
         $this->layout = 'blog';
-        $data = CovNews::getAll(16);
+        $data = News::getAll(16);
 
         $data1 = $data['news'][0];
         for ($i = 1, $j = 0; $i < 5;) {

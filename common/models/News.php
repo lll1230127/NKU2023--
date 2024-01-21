@@ -21,7 +21,7 @@ use Yii;
  * @property string|null $sourceUrl
  * @property string|null $image
  */
-class CovNews extends \yii\db\ActiveRecord
+class News extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -61,17 +61,17 @@ class CovNews extends \yii\db\ActiveRecord
 
     /**
      * {@inheritdoc}
-     * @return CovNewsQuery the active query used by this AR class.
+     * @return NewsQuery the active query used by this AR class.
      */
     public static function find()
     {
-        return new CovNewsQuery(get_called_class());
+        return new NewsQuery(get_called_class());
     }
     
     public static function getAll($pageSize = 5)
     {
         
-        $query = CovNews::find()->latest();
+        $query = News::find()->latest();
 
     
         $count = $query->count();

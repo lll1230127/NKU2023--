@@ -7,12 +7,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\CovResearch;
+use common\models\Research;
 
 /**
- * CovResearchSearch represents the model behind the search form of `common\models\CovResearch`.
+ * ResearchSearch represents the model behind the search form of `common\models\Research`.
  */
-class CovResearchSearch extends CovResearch
+class ResearchSearch extends Research
 {
     /**
      * {@inheritdoc}
@@ -43,7 +43,7 @@ class CovResearchSearch extends CovResearch
      */
     public function search($params)
     {
-        $query = CovResearch::find();
+        $query = Research::find();
 
         // add conditions that should always apply here
 

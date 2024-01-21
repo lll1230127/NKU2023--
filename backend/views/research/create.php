@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CovResearch */
+/* @var $model common\models\Research */
 
 $this->title = 'Create Research';
 $this->params['breadcrumbs'][] = ['label' => 'Researches', 'url' => ['index']];

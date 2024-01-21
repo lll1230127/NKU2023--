@@ -27,11 +27,11 @@ echo \yii\bootstrap4\Nav::widget([
         ],
         [
             'label'=>'News',
-            'url'=>['/cov-news/index']
+            'url'=>['/news/index']
         ],
         [
             'label'=>'Research',
-            'url'=>['/cov-research/index']
+            'url'=>['/research/index']
         ],
         [
             'label'=>'Contact Info',

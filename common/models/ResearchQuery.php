@@ -8,11 +8,11 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[CovResearch]].
+ * This is the ActiveQuery class for [[Research]].
  *
- * @see CovResearch
+ * @see Research
  */
-class CovResearchQuery extends \yii\db\ActiveQuery
+class ResearchQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -21,7 +21,7 @@ class CovResearchQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return CovResearch[]|array
+     * @return Research[]|array
      */
     public function all($db = null)
     {
@@ -30,7 +30,7 @@ class CovResearchQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return CovResearch|array|null
+     * @return Research|array|null
      */
     public function one($db = null)
     {

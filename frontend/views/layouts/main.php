@@ -1,5 +1,9 @@
 <?php
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  默认的框架
+ */
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -33,15 +37,10 @@ AppAsset::register($this);
     <div class="wrap h-100 d-flex flex-column">
         <?php echo $this->render('header') ?>
             <div class="content-wrapper-index p-3" >
-                
                 <?= Alert::widget() ?>
                 <?= $content ?>
             </div>
-
-
     </div>
-
-   
 
     <?php $this->endBody() ?>
 </body>

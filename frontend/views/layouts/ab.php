@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+*  team : LLLG NKU
+*  Coding by : 李威远2112338
+*  about的框架
+ */
 
 /* @var $this \yii\web\View */
 /* @var $content string */
