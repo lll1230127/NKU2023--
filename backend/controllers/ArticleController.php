@@ -4,7 +4,7 @@ namespace backend\controllers;
 /**
 *  Team: lllg,NKU
 *  Coding by 郭昱杰 2111066
-*  定义了有关文章的Controller
+*  有关文章的Controller
  */
 
 use Yii;
@@ -22,6 +22,8 @@ use yii\web\UploadedFile;
 class ArticleController extends Controller
 {
   
+    // 使用 AccessControl 行为来控制访问权限
+    // 使用 VerbFilter 行为来限制某些操作只能使用 POST 请求
     public function behaviors()
     {
         return [
@@ -43,7 +45,6 @@ class ArticleController extends Controller
         ];
     }
 
-
     public function actionIndex()
     {
         $searchModel = new ArticleSearch();
@@ -56,12 +57,15 @@ class ArticleController extends Controller
     }
 
 
+    // 显示单个文章的详细信息页面。
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
+
+    // creat的响应
     public function actionCreate()
     {
         $model = new Article();
@@ -74,6 +78,8 @@ class ArticleController extends Controller
             'model' => $model,
         ]);
     }
+
+    // update的响应
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -86,6 +92,7 @@ class ArticleController extends Controller
             'model' => $model,
         ]);
     }
+
 
     public function actionDelete($id)
     {

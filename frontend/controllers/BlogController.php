@@ -1,5 +1,10 @@
 <?php
 
+/**
+*  Team: lllg,NKU
+*  Coding by 郭昱杰 2111066
+*  gii生成，有关博客的Controller
+ */
 
 namespace frontend\controllers;
 
