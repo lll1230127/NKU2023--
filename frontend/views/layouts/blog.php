@@ -33,13 +33,7 @@ AppAsset::register($this);
 
     <div class="wrap h-100 d-flex flex-column">
         <?php echo $this->render('header') ?>
-
-
-        
-
         <?= $content ?>
-
-
     </div>
 
 

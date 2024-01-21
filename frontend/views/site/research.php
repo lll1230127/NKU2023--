@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= Html::jsFile('@web/news/js/jquery-3.2.1.min.js') ?>
 
 
-<div class="research-index" style="background-color:rgba(255,255,255,1);">
+<div class="research-index" style="background-color:rgba(255,255,255,0.8);">
 	<!-- Page heading -->
 	<div class="container" >
 		<div >

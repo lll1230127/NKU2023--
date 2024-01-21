@@ -16,12 +16,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
+<style>
+.info { 
+    padding: 6px 8px; 
+    font: 14px/16px Arial, Helvetica, sans-serif; 
+    background: white; 
+    background: rgba(255,255,255,0.8); 
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+    border-radius: 5px; 
+    min-width: 150px;
+} 
+</style>
 
 
-
-<div class="row">
+<div class="row" style="background-color:rgba(255,255,255,0.8); margin: auto; border-style :solid;">
     <div class="col-sm-8">
-        <div class="embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive embed-responsive-16by9" style= " padding: 30px " >
             <video class="embed-responsive-item" poster="<?php echo $model->getThumbnailLink() ?>" src="<?php echo $model->getVideoLink() ?>" controls></video>
         </div>
         <h6 class="mt-2"><?php echo $model->title ?></h6>
@@ -104,11 +114,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
 
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4"  style= " padding: 30px;background-color :rgba(255,255,255,0.4);" >
         <?php foreach ($similarVideos as $similarVideo) : ?>
-            <div class="media mb-3">
+            <div class="media mb-3" style= "border-style :solid;border-width : thin">
                 <a href="<?php echo Url::to(['/video/view', 'id' => $similarVideo->video_id]) ?>">
-                    <div class="embed-responsive embed-responsive-16by9 mr-2" style="width: 120px">
+                    <div class="embed-responsive embed-responsive-16by9 mr-2" style="width: 120px;" >
                         <video class="embed-responsive-item" poster="<?php echo $similarVideo->getThumbnailLink() ?>" src="<?php echo $similarVideo->getVideoLink() ?>"></video>
                     </div>
                 </a>
