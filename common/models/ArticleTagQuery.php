@@ -3,7 +3,7 @@
 namespace common\models;
 
 /**
- * This is the ActiveQuery class for [[ArticleTag]].
+ * gii生成
  *
  * @see ArticleTag
  */

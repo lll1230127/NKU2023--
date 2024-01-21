@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Team:lllg,NKU
+ * coding by 郭昱杰 2111066
+ * 展示blog的内容
+ */
 use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
