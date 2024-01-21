@@ -1,8 +1,4 @@
 <?php
-/**
- * Team:布利啾啾迪布利多,NKU
- * coding by huangjingzhi 1810729,20200509
- */
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;

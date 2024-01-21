@@ -7,12 +7,6 @@
 use yii\db\Migration;
 
 /**
- * Team:布利啾啾迪布利多,NKU
- * coding by 徐云凯 1713667
- * 疫情地图数据库表生成器
- */
-
-/**
  * Class m200514_152015_covid_map
  */
 class m200514_152015_covid_map extends Migration
