@@ -53,6 +53,10 @@ echo \yii\bootstrap4\Nav::widget([
         [
             'label'=>'Homework',
             'url'=>['/site/homework']
+        ],
+        [
+            'label'=>'User',
+            'url'=>['/user/index']
         ]
     ]
 ])
