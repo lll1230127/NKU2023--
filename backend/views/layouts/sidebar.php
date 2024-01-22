@@ -51,13 +51,13 @@ echo \yii\bootstrap4\Nav::widget([
             'url'=>['/pcounter-save/index']
         ],
         [
+            'label'=>'User',
+            'url'=>['/user/index']
+        ],
+        [
             'label'=>'Homework',
             'url'=>['/site/homework']
         ],
-        [
-            'label'=>'User',
-            'url'=>['/user/index']
-        ]
     ]
 ])
 ?>

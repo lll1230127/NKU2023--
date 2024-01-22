@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\CovNews */
+/* @var $model common\models\News */
 
 $this->title = 'Update News: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Cov News', 'url' => ['index']];
